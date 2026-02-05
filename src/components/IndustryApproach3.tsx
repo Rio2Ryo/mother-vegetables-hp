@@ -25,25 +25,39 @@ export default function IndustryApproach() {
     ? 'カリウム・ナトリウム・マグネシウム・カルシウム・リン・鉄・マンガン・亜鉛・銅・ビタミンA・B1・B2・B3・B5・B6・B9・C・E・K・トリプトファン・スレオニン・ロイシン・イソロイシン・リシン・メチオニン・フェニルアラニン・バリン・ヒスチジン・アルギニン・システイン・チロシン・アラニン・アスパラギン酸・グルタミン酸・セリン・グリシン・プロリン・飽和脂肪酸・オメガ3脂肪酸・オメガ6脂肪酸・C-フィコシアニン・クロロフィルa・総カロテノイド・核酸・スピルラン・グリコーゲン様多糖・β-グルカン様多糖・セルロース'
     : 'Potassium, sodium, magnesium, calcium, phosphorus, iron, manganese, zinc, copper, Vitamin A, B1, B2, B3, B5, B6, B9, C, E, K, tryptophan, threonine, leucine, isoleucine, lysine, methionine, phenylalanine, valine, histidine, arginine, cystine, tyrosine, alanine, aspartic acid, glutamic acid, serine, glycine, proline, saturated fatty acids, omega-3 fatty acids, omega-6 fatty acids, C-phycocyanin, chlorophyll a, total carotenoids, nucleic acids, spirulan, glycogen-like polysaccharides, β-glucan-like polysaccharides, cellulose.'
 
-  // プロンプトテンプレート（日本語/英語）- 表形式で見やすく
+  // プロンプトテンプレート（日本語/英語）- 効果効能＋裏付けを引き出す
   const promptTemplate = language === 'JP'
-    ? `以下の成分リストについて、一般的に知られている情報を中立的に整理してください。
-**出力は見やすさ重視で、表（Markdown）で作成**してください。
+    ? `以下の「成分リスト」について、一般的に知られている情報から**主な効果効能**を整理してください。
+**断定は避け**、根拠の強さと出典を示してください。
 
-【表の列】
-| 成分名 | 期待される作用（要約） | エビデンス（A=強い/B=中程度/C=限定的） | 注意点 | 参考URL |
+【出力形式（必ずこの順）】
+1) **総論（3〜5行）**：この成分群に期待されやすい領域（例：栄養補助、抗酸化、皮膚バリア等）
 
-【注意】これは医療アドバイスではありません。詳細は専門家にご相談ください。
+2) **成分別の主な効果効能（Markdown表）**
+| 成分名 | 期待される主な作用 | 作用の根拠・メカニズム | エビデンス強さ（A=強い/B=中/C=限定） | 注意点 | 参考URL |
+※重要度が高いものを優先して上位15成分まで表で出し、残りはカテゴリごとにまとめて記載
+
+3) **「この成分にはこういう効果がある」と言える条件**
+- 用量・期間・対象者・前提（食品/サプリ/外用など）の注意
+
+4) **免責**：これは医療アドバイスではありません。詳細は専門家にご相談ください。
 
 【成分リスト】
 ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
-    : `Please organize neutral, general information about the following ingredient list.
-**Output in a clear Markdown table format** for easy reading.
+    : `Please organize the **main effects and benefits** of the following ingredient list based on generally known information.
+**Avoid definitive claims** and provide evidence strength and sources.
 
-【Table Columns】
-| Ingredient | Expected Effects (Summary) | Evidence (A=Strong/B=Moderate/C=Limited) | Cautions | Reference URL |
+【Output Format (in this order)】
+1) **Overview (3-5 lines)**: Areas where this ingredient group is expected to be beneficial (e.g., nutritional support, antioxidant, skin barrier, etc.)
 
-【Note】This is NOT medical advice. Please consult a professional for details.
+2) **Effects by Ingredient (Markdown Table)**
+| Ingredient | Expected Main Effects | Mechanism/Evidence | Evidence Strength (A=Strong/B=Moderate/C=Limited) | Cautions | Reference URL |
+*Prioritize top 15 ingredients by importance; summarize the rest by category*
+
+3) **Conditions for claiming "this ingredient has this effect"**
+- Notes on dosage, duration, target population, context (food/supplement/topical, etc.)
+
+4) **Disclaimer**: This is NOT medical advice. Please consult a professional for details.
 
 【Ingredient List】
 ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
