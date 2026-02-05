@@ -116,7 +116,7 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
     featuresNote: language === 'JP'
       ? '（腸内機能/睡眠/便/運動機能/二日酔い/疲労等についての効果は各自AIにてお調べください）'
       : '(Please use AI to research the effects on intestinal function, sleep, bowel movements, exercise performance, hangovers, fatigue, etc.)',
-    copyButton: language === 'JP' ? '成分をコピー' : 'Copy Ingredients',
+    copyButton: language === 'JP' ? 'クリップボードにコピー' : 'Copy to clipboard',
     copiedMessage: language === 'JP' 
       ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 
       : '✅ Copied! Open an AI service and paste.',
