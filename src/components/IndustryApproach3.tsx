@@ -1,9 +1,11 @@
 'use client'
 
+import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 
 export default function IndustryApproach() {
   const { language } = useLanguage()
+  const [copied, setCopied] = useState(false)
 
   const nutrients = language === 'JP' ? [
     { name: 'ミネラル', count: '9種類' },
@@ -23,69 +25,62 @@ export default function IndustryApproach() {
     ? 'カリウム・ナトリウム・マグネシウム・カルシウム・リン・鉄・マンガン・亜鉛・銅・ビタミンA・B1・B2・B3・B5・B6・B9・C・E・K・トリプトファン・スレオニン・ロイシン・イソロイシン・リシン・メチオニン・フェニルアラニン・バリン・ヒスチジン・アルギニン・システイン・チロシン・アラニン・アスパラギン酸・グルタミン酸・セリン・グリシン・プロリン・飽和脂肪酸・オメガ3脂肪酸・オメガ6脂肪酸・C-フィコシアニン・クロロフィルa・総カロテノイド・核酸・スピルラン・グリコーゲン様多糖・β-グルカン様多糖・セルロース'
     : 'Potassium, sodium, magnesium, calcium, phosphorus, iron, manganese, zinc, copper, Vitamin A, B1, B2, B3, B5, B6, B9, C, E, K, tryptophan, threonine, leucine, isoleucine, lysine, methionine, phenylalanine, valine, histidine, arginine, cystine, tyrosine, alanine, aspartic acid, glutamic acid, serine, glycine, proline, saturated fatty acids, omega-3 fatty acids, omega-6 fatty acids, C-phycocyanin, chlorophyll a, total carotenoids, nucleic acids, spirulan, glycogen-like polysaccharides, β-glucan-like polysaccharides, cellulose.'
 
-  const categories = language === 'JP' ? [
-    {
-      title: 'チルドレン',
-      image: '/children.png',
-      benefits: ['集中力向上', '学習能力向上', '骨の成長サポート', '免疫力向上', '食欲向上'],
-    },
-    {
-      title: 'アダルト',
-      image: '/alduts.png',
-      benefits: ['便秘・消化不良改善', '睡眠の質向上', '疲れの軽減', '細胞老化・炎症の抑制', 'ダイエット'],
-    },
-    {
-      title: 'シニア',
-      image: '/seniors.png',
-      benefits: ['睡眠の質向上', '血液循環の改善', '食欲向上・栄養補給', '内臓機能のサポート'],
-    },
-    {
-      title: 'アスリート',
-      image: '/athletes.png',
-      benefits: ['添加物のデトックス', '筋肉疲労回復・持続力向上', '効率的な栄養補給', '炎症回復・抑制', 'トレーニング効果の向上'],
-    },
-    {
-      title: 'ドッグ',
-      image: '/dog.png',
-      benefits: ['涙やけの改善', '糞尿のにおい改善', '食欲増強', '腸内環境の改善', '深い睡眠', '体臭改善'],
-    },
-    {
-      title: 'キャット',
-      image: '/cat.png',
-      benefits: ['涙やけの改善', '糞尿のにおい改善', '食欲増強', '腸内環境の改善', '深い睡眠', '体臭改善'],
-    },
-  ] : [
-    {
-      title: 'Children',
-      image: '/children.png',
-      benefits: ['Improves concentration', 'Enhances learning ability', 'Supports bone growth', 'Boosts immunity', 'Increases appetite'],
-    },
-    {
-      title: 'Adults',
-      image: '/alduts.png',
-      benefits: ['Improves constipation and digestion', 'Enhances sleep quality', 'Reduces fatigue', 'Suppresses cellular aging and inflammation', 'Supports dieting'],
-    },
-    {
-      title: 'Seniors',
-      image: '/seniors.png',
-      benefits: ['Improves sleep quality and blood circulation', 'Boosts appetite and nutrient intake', 'Supports internal organ function', 'Promotes bone density'],
-    },
-    {
-      title: 'Athletes',
-      image: '/athletes.png',
-      benefits: ['Detoxifies additives', 'Aids muscle recovery and improves endurance', 'Provides efficient nutrient absorption', 'Reduces inflammation and supports recovery', 'Enhances training effectiveness'],
-    },
-    {
-      title: 'Dog',
-      image: '/dog.png',
-      benefits: ['Reduces tear stains', 'Improves waste odor', 'Increases appetite', 'Supports digestive health', 'Promotes deep sleep', 'Reduces body odor'],
-    },
-    {
-      title: 'Cat',
-      image: '/cat.png',
-      benefits: ['Reduces tear stains', 'Improves waste odor', 'Increases appetite', 'Supports digestive health', 'Promotes deep sleep', 'Reduces body odor'],
-    },
+  // プロンプトテンプレート（日本語/英語）
+  const promptTemplate = language === 'JP'
+    ? `以下の「成分リスト」について、一般的に知られている情報を中立的に整理してください。
+
+【出力してほしい内容】
+1) 期待される作用（可能性）を箇条書き
+2) エビデンスの強さ（A=強い / B=中程度 / C=限定的）
+3) 注意点（副作用・禁忌・併用注意・妊娠/授乳・持病）
+4) 一次情報（公的機関/論文等）を3〜5件、URL付き
+5) 医療アドバイスではない旨を明記
+
+【成分リスト】
+${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
+    : `Please provide neutral, evidence-based information about the following "Ingredient List".
+
+【Required Output】
+1) Potential effects (as bullet points)
+2) Evidence strength (A=Strong / B=Moderate / C=Limited)
+3) Cautions (side effects, contraindications, drug interactions, pregnancy/nursing, medical conditions)
+4) Primary sources (government agencies/papers) with 3-5 URLs
+5) Disclaimer that this is not medical advice
+
+【Ingredient List】
+${nutrientsList.split(', ').map(n => `- ${n}`).join('\n')}`
+
+  // コピー機能
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(promptTemplate)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 3000)
+    } catch (err) {
+      console.error('Failed to copy:', err)
+    }
+  }
+
+  // AIサービスリンク
+  const aiServices = [
+    { name: 'ChatGPT', url: 'https://chat.openai.com/', color: '#10a37f' },
+    { name: 'Gemini', url: 'https://gemini.google.com/', color: '#4285f4' },
+    { name: 'Claude', url: 'https://claude.ai/', color: '#d97706' },
+    { name: 'Grok', url: 'https://grok.com/', color: '#1da1f2' },
   ]
+
+  // テキスト（日本語/英語）
+  const texts = {
+    effectsTitle: language === 'JP' ? '効果効能' : 'Effects & Benefits',
+    effectsDescription: language === 'JP'
+      ? '効果効能は、成分・体質・摂取量等により異なります。下の成分情報をコピーして、AIで調べることができます。'
+      : 'Effects vary depending on ingredients, constitution, and dosage. You can copy the ingredient information below and research it using AI.',
+    copyButton: language === 'JP' ? '📋 AIに質問する文章をコピー' : '📋 Copy prompt to ask AI',
+    copiedMessage: language === 'JP' 
+      ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 
+      : '✅ Copied! Open an AI service and paste.',
+    aiLinksLabel: language === 'JP' ? '🤖 AIで開く（ログインして貼り付け）' : '🤖 Open AI (login and paste)',
+  }
 
   return (
     <section id="food-function" className="py-5 md:py-5 bg-black">
@@ -196,42 +191,66 @@ export default function IndustryApproach() {
           </p>
         </div>
 
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mt-12 md:mt-16 px-0 md:px-12">
-          {categories.map((category, index) => (
-            <div key={index} className="flex items-start gap-3 md:gap-6">
-              {/* Silhouette Image */}
-              <div className="flex-shrink-0 w-20 h-28 md:w-32 md:h-44">
-                <img
-                  src={category.image}
-                  alt={category.title}
-                  className="w-full h-full object-contain"
-                  style={{ filter: 'brightness(0) saturate(100%) invert(56%) sepia(52%) saturate(405%) hue-rotate(93deg) brightness(95%) contrast(87%)' }}
-                />
-              </div>
-              {/* Text Content */}
-              <div className="flex-1">
-                <h4
-                  className="text-base md:text-2xl font-bold mb-1"
-                  style={{ color: '#25c760' }}
+        {/* Effects & Benefits Section (New) */}
+        <div className="max-w-3xl mx-auto px-4 md:px-4 mt-12 md:mt-16">
+          {/* Effects Title */}
+          <h3
+            className="text-lg md:text-3xl font-bold text-center mb-4 md:mb-6"
+            style={{ color: '#25c760' }}
+          >
+            {texts.effectsTitle}
+          </h3>
+
+          {/* Description */}
+          <p className="text-gray-300 text-sm md:text-base text-center leading-relaxed mb-6 md:mb-8">
+            {texts.effectsDescription}
+          </p>
+
+          {/* Copy Button */}
+          <div className="flex flex-col items-center gap-4 mb-6">
+            <button
+              onClick={handleCopy}
+              className="px-6 py-3 md:px-8 md:py-4 rounded-lg font-bold text-sm md:text-lg transition-all duration-300 hover:scale-105"
+              style={{
+                backgroundColor: '#25c760',
+                color: 'white',
+                boxShadow: '0 4px 15px rgba(37, 199, 96, 0.3)',
+              }}
+            >
+              {texts.copyButton}
+            </button>
+
+            {/* Copied Message */}
+            {copied && (
+              <p className="text-green-400 text-sm md:text-base animate-pulse">
+                {texts.copiedMessage}
+              </p>
+            )}
+          </div>
+
+          {/* AI Links Section */}
+          <div className="text-center">
+            <p className="text-gray-400 text-sm md:text-base mb-4">
+              {texts.aiLinksLabel}
+            </p>
+            <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+              {aiServices.map((service, index) => (
+                <a
+                  key={index}
+                  href={service.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105 hover:opacity-90"
+                  style={{
+                    backgroundColor: service.color,
+                    color: 'white',
+                  }}
                 >
-                  {category.title}
-                </h4>
-                <div className="w-full h-0.5 bg-gradient-to-r from-green-500 to-transparent mb-3 md:mb-4"></div>
-                <ul className="space-y-0.5 md:space-y-1">
-                  {category.benefits.map((benefit, idx) => (
-                    <li
-                      key={idx}
-                      className="text-white text-xs md:text-base flex items-start"
-                    >
-                      <span className="mr-2 md:mr-3 text-white">●</span>
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                  {service.name}
+                </a>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
