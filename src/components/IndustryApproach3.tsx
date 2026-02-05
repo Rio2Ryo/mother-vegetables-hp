@@ -353,7 +353,7 @@ Explain the potential benefits of a food with these characteristics:
           <div className="flex flex-col items-center gap-4 mb-8">
             <button
               onClick={handleCopy}
-              className="group flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 rounded-2xl font-bold text-base md:text-lg transition-all duration-300 hover:scale-105 border-2 border-[#25c760] bg-transparent hover:bg-[#25c760]/10"
+              className="group flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 rounded-2xl font-bold text-base md:text-lg transition-all duration-300 hover:scale-105 border-2 border-[#25c760] bg-transparent hover:bg-[#25c760]/10 whitespace-nowrap"
               style={{ color: '#25c760' }}
             >
               {/* Clipboard Icon */}
