@@ -59,12 +59,12 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
     }
   }
 
-  // AIサービスリンク（ロゴ付き）
+  // AIサービスリンク（ロゴ付き - ローカル配置）
   const aiServices = [
-    { name: 'ChatGPT', url: 'https://chat.openai.com/', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg' },
-    { name: 'Gemini', url: 'https://gemini.google.com/', logo: 'https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg' },
-    { name: 'Claude', url: 'https://claude.ai/', logo: 'https://claude.ai/images/claude_app_icon.png' },
-    { name: 'Grok', url: 'https://grok.com/', logo: 'https://grok.com/images/grok-logo.svg' },
+    { name: 'ChatGPT', url: 'https://chat.openai.com/', logo: '/ai/chatgpt.svg' },
+    { name: 'Gemini', url: 'https://gemini.google.com/', logo: '/ai/gemini.svg' },
+    { name: 'Claude', url: 'https://claude.ai/', logo: '/ai/claude.svg' },
+    { name: 'Grok', url: 'https://grok.com/', logo: '/ai/grok.svg' },
   ]
 
   // テキスト（日本語/英語）
