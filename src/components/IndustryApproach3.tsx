@@ -71,10 +71,10 @@ ${nutrientsList.split(', ').map(n => `- ${n}`).join('\n')}`
 
   // テキスト（日本語/英語）
   const texts = {
-    effectsTitle: language === 'JP' ? '効果効能' : 'Effects & Benefits',
+    effectsTitle: language === 'JP' ? '効果効能について' : 'About Effects & Benefits',
     effectsDescription: language === 'JP'
-      ? '効果効能は、成分・体質・摂取量等により異なります。下の成分情報をコピーして、AIで調べることができます。'
-      : 'Effects vary depending on ingredients, constitution, and dosage. You can copy the ingredient information below and research it using AI.',
+      ? '私たちはグローバルに事業を展開しており、国や地域によって法律や規制が異なります。そのため、各国の法規制に準拠した運用を行っており、効果効能を直接記載することができません。\n\n成分情報をもとにご自身でお調べいただくため、下記のコピー機能をご活用ください。AIサービスに貼り付けるだけで、各成分の一般的な情報を確認することができます。'
+      : 'We operate globally, and laws and regulations vary by country and region. To comply with local regulations, we cannot directly describe specific effects and benefits.\n\nPlease use the copy function below to research the ingredients on your own. Simply paste into an AI service to learn about general information for each ingredient.',
     copyButton: language === 'JP' ? '📋 AIに質問する文章をコピー' : '📋 Copy prompt to ask AI',
     copiedMessage: language === 'JP' 
       ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 

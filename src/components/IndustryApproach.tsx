@@ -14,11 +14,11 @@ export default function IndustryApproach() {
       label: "'TORIKOMU'",
       description: language === 'JP' ? '一度に48種類の栄養摂取' : '48 different nutrients at once.',
       features: language === 'JP' ? [
-        '腸内環境を改善、全身の細胞が再生',
-        '便秘・睡眠改善、ダイエット効果',
+        '48種類の栄養素を一度に摂取',
+        '毎日の健康維持をサポート',
       ] : [
-        'Supports a healthy gut, Regeneration of cells throughout the body.',
-        'Helps relieve constipation, improve sleep, and aid weight management.',
+        '48 different nutrients in one serving',
+        'Supports your daily wellness routine',
       ],
       howToUse: language === 'JP' ? "1スティックを飲み物や食事に'TORIKOMU'" : "Simply 'TORIKOMU' one capsule into your drink or meal.",
     },
@@ -30,11 +30,11 @@ export default function IndustryApproach() {
       label: "'SURIKOMU' , 'MAZEKOMU'",
       description: language === 'JP' ? '肌の治癒効果' : 'Skin Healing Effect',
       features: language === 'JP' ? [
-        '即効性のある肌の細胞の再生',
-        'しみ、ニキビ、体臭、キズ、やけどを治癒',
+        '天然由来の成分を配合',
+        'スキンケアにプラスワン',
       ] : [
-        'Powerful anti-aging benefits.',
-        'Helps improve dark spots, acne, odor, and skin damage.',
+        'Contains natural-derived ingredients',
+        'Add to your skincare routine',
       ],
       howToUse: language === 'JP' ? "直接 'SURIKOMU' または コスメに 'MAZEKOMU'" : "'SURIKOMU' directly or 'MAZEKOMU' into your current cosmetics.",
     },
@@ -46,11 +46,11 @@ export default function IndustryApproach() {
       label: "'MAZEKOMU'",
       description: language === 'JP' ? 'ペットの健康寿命を延ばす' : "to extend your pet's healthy life.",
       features: language === 'JP' ? [
-        '涙やけ、腸内環境を改善',
-        '体臭・糞尿のにおい改善、食欲増加',
+        'ペットの毎日の健康をサポート',
+        '天然由来の栄養成分を配合',
       ] : [
-        'Supports tear stain reduction and gut health.',
-        'Helps reduce body and waste odors, boosts appetite.',
+        'Supports your pet\'s daily wellness',
+        'Contains natural-derived nutrients',
       ],
       howToUse: language === 'JP' ? "ペットフードに1スティックを'MAZEKOMU'" : "Simply 'MAZEKOMU' one capsule into your pet's food.",
     },
