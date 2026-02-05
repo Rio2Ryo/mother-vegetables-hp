@@ -90,6 +90,8 @@ export default function IndustryApproach() {
 
 4) **免責**：これは医療アドバイスではありません。詳細は専門家にご相談ください。
 
+※この成分表は「100g当たり」の数値です。摂取量がXgの場合は、各成分量を比例換算して説明してください。
+
 【成分リスト（100g当たり）】
 - ${nutrientsListForPrompt}`
     : `Please organize the **main effects and benefits** of the following ingredient list based on generally known information.
@@ -106,6 +108,8 @@ export default function IndustryApproach() {
 - Notes on dosage, duration, target population, context (food/supplement/topical, etc.)
 
 4) **Disclaimer**: This is NOT medical advice. Please consult a professional for details.
+
+*Note: This ingredient list shows values per 100g. If your intake is X grams, please proportionally adjust each nutrient amount.*
 
 【Ingredient List (per 100g)】
 - ${nutrientsListForPrompt}`
