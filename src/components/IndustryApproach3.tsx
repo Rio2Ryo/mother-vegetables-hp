@@ -84,6 +84,7 @@ export default function IndustryApproach() {
 
 1) **期待できる効果トップ5**
 以下の成分群から期待できる主な効果を、重要度順に5つ挙げてください。
+※最も多く含まれる成分はフィコシアニン（C-フィコシアニン：約16-20g/100g）です。
 各効果について：
 - どのような効果が期待できるか（一般論）
 - その効果の裏付けとなる成分（この成分リストの中から該当するもの）
@@ -122,6 +123,7 @@ export default function IndustryApproach() {
 
 1) **Top 5 Expected Benefits**
 List the top 5 expected benefits from this ingredient group, in order of importance.
+*Note: The most abundant ingredient is Phycocyanin (C-Phycocyanin: approx. 16-20g/100g).*
 For each benefit:
 - What effect can be expected (general knowledge)
 - Supporting ingredients from this list
