@@ -73,43 +73,81 @@ export default function IndustryApproach() {
     .map(n => language === 'JP' ? `${n.name}: ${n.amount}` : `${n.nameEN}: ${n.amount}`)
     .join('\n- ')
 
-  // プロンプトテンプレート（日本語/英語）- 効果効能＋裏付けを引き出す
+  // プロンプトテンプレート（日本語/英語）- 効果トップ5 + 裏付け成分
   const promptTemplate = language === 'JP'
-    ? `以下の「成分リスト」について、一般的に知られている情報から**主な効果効能**を整理してください。
-**断定は避け**、根拠の強さと出典を示してください。
-
-【出力形式（必ずこの順）】
-1) **総論（3〜5行）**：この成分群に期待されやすい領域（例：栄養補助、抗酸化、皮膚バリア等）
-
-2) **成分別の主な効果効能（Markdown表）**
-| 成分名 | 期待される主な作用 | 作用の根拠・メカニズム | エビデンス強さ（A=強い/B=中/C=限定） | 注意点 | 参考URL |
-※重要度が高いものを優先して上位15成分まで表で出し、残りはカテゴリごとにまとめて記載
-
-3) **「この成分にはこういう効果がある」と言える条件**
-- 用量・期間・対象者・前提（食品/サプリ/外用など）の注意
-
-4) **免責**：これは医療アドバイスではありません。詳細は専門家にご相談ください。
+    ? `以下の成分を含む食品について、一般論として期待できる効果を教えてください。
+**断定は避け**、あくまで一般的に知られている情報に基づいてください。
 
 ※この成分表は「100g当たり」の数値です。摂取量がXgの場合は、各成分量を比例換算して説明してください。
 
+【出力形式（必ずこの順）】
+
+1) **期待できる効果トップ5**
+以下の成分群から期待できる主な効果を、重要度順に5つ挙げてください。
+各効果について：
+- どのような効果が期待できるか（一般論）
+- その効果の裏付けとなる成分（この成分リストの中から該当するもの）
+- なぜその成分が効くとされているか（簡潔に）
+
+2) **特定領域への期待される効果**
+以下の領域について、この成分群から期待できる効果を説明してください：
+- 腸内機能
+- 睡眠
+- 便通
+- 運動機能
+- 二日酔い
+- 疲労回復
+
+3) **この食品の特性について**
+以下の特性を持つ食品として、どのようなメリットが考えられるか説明してください：
+・植物や藻の始祖にあたる天然素材のみを使用
+・固い外核や細胞壁を持たない（消化吸収への影響）
+・完全室内培養（Closed Bioreactor System）
+・重金属・マイクロプラスチック汚染リスクを極限まで排除
+・虫・鳥類・外来微生物などの混入が起こらない培養環境
+・農薬・化学肥料 不使用
+・食品添加物 不使用
+・保存料・人工着色料・香料 不使用
+
+4) **免責**：これは医療アドバイスではありません。詳細は専門家にご相談ください。
+
 【成分リスト（100g当たり）】
 - ${nutrientsListForPrompt}`
-    : `Please organize the **main effects and benefits** of the following ingredient list based on generally known information.
-**Avoid definitive claims** and provide evidence strength and sources.
-
-【Output Format (in this order)】
-1) **Overview (3-5 lines)**: Areas where this ingredient group is expected to be beneficial (e.g., nutritional support, antioxidant, skin barrier, etc.)
-
-2) **Effects by Ingredient (Markdown Table)**
-| Ingredient | Expected Main Effects | Mechanism/Evidence | Evidence Strength (A=Strong/B=Moderate/C=Limited) | Cautions | Reference URL |
-*Prioritize top 15 ingredients by importance; summarize the rest by category*
-
-3) **Conditions for claiming "this ingredient has this effect"**
-- Notes on dosage, duration, target population, context (food/supplement/topical, etc.)
-
-4) **Disclaimer**: This is NOT medical advice. Please consult a professional for details.
+    : `Please tell me about the expected benefits of a food containing the following ingredients.
+**Avoid definitive claims** and base your response on generally known information.
 
 *Note: This ingredient list shows values per 100g. If your intake is X grams, please proportionally adjust each nutrient amount.*
+
+【Output Format (in this order)】
+
+1) **Top 5 Expected Benefits**
+List the top 5 expected benefits from this ingredient group, in order of importance.
+For each benefit:
+- What effect can be expected (general knowledge)
+- Supporting ingredients from this list
+- Why these ingredients are believed to be effective (briefly)
+
+2) **Expected Effects in Specific Areas**
+Explain the expected effects from this ingredient group in the following areas:
+- Gut function
+- Sleep
+- Bowel movements
+- Exercise performance
+- Hangover recovery
+- Fatigue recovery
+
+3) **About This Food's Characteristics**
+Explain the potential benefits of a food with these characteristics:
+・Uses only natural ingredients derived from the ancestor of plants and algae
+・Has no hard outer shell or cell wall (impact on digestion/absorption)
+・Completely indoor cultivation (Closed Bioreactor System)
+・Minimized risk of heavy metal and microplastic contamination
+・Cultivation environment free from insects, birds, and foreign microorganisms
+・No pesticides or chemical fertilizers
+・No food additives
+・No preservatives, artificial colors, or fragrances
+
+4) **Disclaimer**: This is NOT medical advice. Please consult a professional for details.
 
 【Ingredient List (per 100g)】
 - ${nutrientsListForPrompt}`
