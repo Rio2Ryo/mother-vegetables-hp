@@ -70,7 +70,7 @@ export default function IndustryApproach() {
 
   // プロンプト用の成分リスト（グラム数付き）
   const nutrientsListForPrompt = nutrientsWithAmount
-    .map(n => language === 'JP' ? `${n.name}: ${n.amount}` : `${n.nameEN}: ${n.amount}`)
+    .map(n => language === 'JP' ? `${n.name}: ${n.amount}` : `${n.nameEN}: ${n.amount.replace(/約/g, 'approx. ')}`)
     .join('\n- ')
 
   // プロンプトテンプレート（日本語/英語）- 効果トップ5 + 裏付け成分
@@ -325,7 +325,7 @@ Explain the potential benefits of a food with these characteristics:
                   {language === 'JP' ? nutrient.name : nutrient.nameEN}
                 </div>
                 <div className="text-green-400 text-[10px] md:text-sm font-bold">
-                  {nutrient.amount}
+                  {language === 'JP' ? nutrient.amount : nutrient.amount.replace(/約/g, 'approx. ')}
                 </div>
               </div>
             ))}
