@@ -59,25 +59,53 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
     }
   }
 
-  // AIサービスリンク
+  // AIサービスリンク（ロゴ付き）
   const aiServices = [
-    { name: 'ChatGPT', url: 'https://chat.openai.com/', color: '#10a37f' },
-    { name: 'Gemini', url: 'https://gemini.google.com/', color: '#4285f4' },
-    { name: 'Claude', url: 'https://claude.ai/', color: '#d97706' },
-    { name: 'Grok', url: 'https://grok.com/', color: '#1da1f2' },
+    { name: 'ChatGPT', url: 'https://chat.openai.com/', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg' },
+    { name: 'Gemini', url: 'https://gemini.google.com/', logo: 'https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg' },
+    { name: 'Claude', url: 'https://claude.ai/', logo: 'https://claude.ai/images/claude_app_icon.png' },
+    { name: 'Grok', url: 'https://grok.com/', logo: 'https://grok.com/images/grok-logo.svg' },
   ]
 
   // テキスト（日本語/英語）
   const texts = {
     effectsTitle: language === 'JP' ? '効果効能について' : 'About Effects & Benefits',
-    effectsDescription: language === 'JP'
-      ? '私たちはグローバルに事業を展開しており、国や地域によって法律や規制が異なります。そのため、各国の法規制に準拠した運用を行っており、効果効能を直接記載することができません。\n\n成分情報をもとにご自身でお調べいただくため、下記のコピー機能をご活用ください。AIサービスに貼り付けるだけで、各成分の一般的な情報を確認することができます。'
-      : 'We operate globally, and laws and regulations vary by country and region. To comply with local regulations, we cannot directly describe specific effects and benefits.\n\nPlease use the copy function below to research the ingredients on your own. Simply paste into an AI service to learn about general information for each ingredient.',
-    copyButton: language === 'JP' ? '📋 AIに質問する文章をコピー' : '📋 Copy prompt to ask AI',
+    effectsDescription1: language === 'JP'
+      ? '我々Mother Vegetableグループは世界各地で活動を行っているため、効果効能に関する表現についても各国の法律・ガイドラインを遵守します。'
+      : 'The Mother Vegetable Group operates worldwide, and we comply with the laws and guidelines of each country regarding the expression of effects and benefits.',
+    effectsDescription2: language === 'JP'
+      ? '私たちは地球と生命の未来基準を創る存在として、表現においても世界基準の責任を担うパイオニアであり続けます。'
+      : 'As pioneers creating future standards for Earth and life, we continue to bear the responsibility of global standards in our expressions.',
+    effectsDescription3: language === 'JP'
+      ? 'そこで、Mother Vegetable Achieveについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押して内容をコピーし、ChatGPTやGeminiなどのAIに、この成分を飲むとどのようになるかについて各自お調べください。'
+      : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Achieve. Please click the "Copy to Clipboard" button below, and use AI services like ChatGPT or Gemini to research what happens when you consume these ingredients.',
+    featuresTitle: language === 'JP' ? '我々の特性について' : 'Our Characteristics',
+    features: language === 'JP' ? [
+      '植物や藻の始祖にあたるMother Vegetable由来の天然素材のみを使用',
+      'Mother Vegetableは固い外核や細胞壁を持たない',
+      '完全室内培養（Closed Bioreactor System）',
+      '重金属・マイクロプラスチック汚染リスクを極限まで排除',
+      '虫・鳥類・外来微生物などの混入が起こらない培養環境',
+      '農薬・化学肥料 不使用',
+      '食品添加物 不使用',
+      '保存料・人工着色料・香料 不使用',
+    ] : [
+      'Uses only natural materials derived from Mother Vegetable, the ancestor of plants and algae',
+      'Mother Vegetable has no hard outer shell or cell walls',
+      'Complete indoor cultivation (Closed Bioreactor System)',
+      'Minimizes heavy metal and microplastic contamination risks',
+      'Cultivation environment free from insects, birds, and foreign microorganisms',
+      'No pesticides or chemical fertilizers',
+      'No food additives',
+      'No preservatives, artificial colors, or fragrances',
+    ],
+    featuresNote: language === 'JP'
+      ? '（腸内機能/睡眠/便/運動機能/二日酔い/疲労等についての効果は各自AIにてお調べください）'
+      : '(Please use AI to research the effects on intestinal function, sleep, bowel movements, exercise performance, hangovers, fatigue, etc.)',
+    copyButton: language === 'JP' ? '📋 クリップボードにコピー' : '📋 Copy to Clipboard',
     copiedMessage: language === 'JP' 
       ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 
       : '✅ Copied! Open an AI service and paste.',
-    aiLinksLabel: language === 'JP' ? '🤖 AIで開く（ログインして貼り付け）' : '🤖 Open AI (login and paste)',
   }
 
   return (
@@ -183,14 +211,14 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
             48 Nutrients
           </h3>
 
-          {/* Nutrients Grid */}
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 md:gap-3">
+          {/* Nutrients Grid - 成分表 */}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 md:gap-3">
             {nutrientsList.split('・').map((nutrient, index) => (
               <div
                 key={index}
-                className="border border-green-500/40 rounded-lg px-2 py-1.5 md:px-3 md:py-2 text-center bg-green-900/20 hover:bg-green-900/40 transition-colors"
+                className="border border-green-500/40 rounded-lg px-1.5 py-2 md:px-3 md:py-2.5 text-center bg-green-900/20 hover:bg-green-900/40 transition-colors min-h-[40px] md:min-h-[50px] flex items-center justify-center"
               >
-                <span className="text-gray-200 text-[9px] md:text-sm whitespace-nowrap">
+                <span className="text-gray-200 text-[8px] md:text-xs leading-tight break-words">
                   {nutrient.trim()}
                 </span>
               </div>
@@ -198,23 +226,29 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
           </div>
         </div>
 
-        {/* Effects & Benefits Section (New) */}
-        <div className="max-w-3xl mx-auto px-4 md:px-4 mt-12 md:mt-16">
-          {/* Effects Title */}
-          <h3
-            className="text-lg md:text-3xl font-bold text-center mb-4 md:mb-6"
-            style={{ color: '#25c760' }}
-          >
-            {texts.effectsTitle}
-          </h3>
+        {/* Effects & Benefits Section */}
+        <div className="max-w-4xl mx-auto px-4 md:px-4 mt-12 md:mt-16">
+          {/* Effects Title with Separator */}
+          <div className="text-center mb-6 md:mb-8">
+            <p className="text-gray-500 text-xs md:text-sm mb-2">━━━━━━━━━━</p>
+            <h3
+              className="text-lg md:text-3xl font-bold mb-2"
+              style={{ color: '#25c760' }}
+            >
+              {texts.effectsTitle}
+            </h3>
+            <p className="text-gray-500 text-xs md:text-sm">━━━━━━━━━━</p>
+          </div>
 
-          {/* Description */}
-          <p className="text-gray-300 text-sm md:text-base text-center leading-relaxed mb-6 md:mb-8">
-            {texts.effectsDescription}
-          </p>
+          {/* Description Paragraphs */}
+          <div className="text-gray-300 text-sm md:text-base text-center leading-relaxed mb-8 md:mb-10 space-y-4">
+            <p>{texts.effectsDescription1}</p>
+            <p>{texts.effectsDescription2}</p>
+            <p>{texts.effectsDescription3}</p>
+          </div>
 
           {/* Copy Button */}
-          <div className="flex flex-col items-center gap-4 mb-6">
+          <div className="flex flex-col items-center gap-4 mb-8">
             <button
               onClick={handleCopy}
               className="px-6 py-3 md:px-8 md:py-4 rounded-lg font-bold text-sm md:text-lg transition-all duration-300 hover:scale-105"
@@ -235,28 +269,54 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
             )}
           </div>
 
-          {/* AI Links Section */}
-          <div className="text-center">
-            <p className="text-gray-400 text-sm md:text-base mb-4">
-              {texts.aiLinksLabel}
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 md:gap-4">
-              {aiServices.map((service, index) => (
-                <a
-                  key={index}
-                  href={service.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 md:px-6 md:py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105 hover:opacity-90"
-                  style={{
-                    backgroundColor: service.color,
-                    color: 'white',
-                  }}
-                >
-                  {service.name}
-                </a>
+          {/* AI Links Section with Logos */}
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-12">
+            {aiServices.map((service, index) => (
+              <a
+                key={index}
+                href={service.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-3 md:px-6 md:py-3 rounded-xl font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105 bg-gray-800 hover:bg-gray-700 border border-gray-600"
+              >
+                <img 
+                  src={service.logo} 
+                  alt={service.name} 
+                  className="w-5 h-5 md:w-6 md:h-6"
+                />
+                <span className="text-white">{service.name}</span>
+              </a>
+            ))}
+          </div>
+
+          {/* Features Section */}
+          <div className="mt-8 md:mt-12">
+            <div className="text-center mb-6">
+              <p className="text-gray-500 text-xs md:text-sm mb-2">━━━━━━━━━━</p>
+              <h4
+                className="text-base md:text-2xl font-bold mb-2"
+                style={{ color: '#25c760' }}
+              >
+                {texts.featuresTitle}
+              </h4>
+              <p className="text-gray-500 text-xs md:text-sm">━━━━━━━━━━</p>
+            </div>
+
+            {/* Features List */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-6">
+              {texts.features.map((feature, index) => (
+                <div key={index} className="flex items-start gap-2">
+                  <span className="text-green-400 mt-0.5">・</span>
+                  <span className="text-gray-300 text-xs md:text-sm">{feature}</span>
+                </div>
               ))}
             </div>
+
+            {/* Features Note */}
+            <p className="text-gray-400 text-xs md:text-sm text-center italic">
+              {texts.featuresNote}
+            </p>
+            <p className="text-gray-500 text-xs md:text-sm text-center mt-4">━━━━━━━━━━</p>
           </div>
         </div>
       </div>
