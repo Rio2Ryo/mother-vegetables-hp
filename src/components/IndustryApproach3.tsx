@@ -236,8 +236,8 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
             {texts.effectsTitle}
           </h3>
 
-          {/* Description Paragraphs */}
-          <div className="text-gray-300 text-sm md:text-base text-center leading-relaxed mb-8 md:mb-10 space-y-4">
+          {/* Description Paragraphs - センター揃えの左寄せ */}
+          <div className="text-gray-300 text-sm md:text-base text-left leading-relaxed mb-8 md:mb-10 space-y-4 max-w-3xl mx-auto">
             <p>{texts.effectsDescription1}</p>
             <p>{texts.effectsDescription2}</p>
             <p>{texts.effectsDescription3}</p>
