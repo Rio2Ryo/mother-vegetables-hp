@@ -204,38 +204,7 @@ export default function IndustryApproach() {
 
   const nutrientsList = 'カリウム・ナトリウム・マグネシウム・カルシウム・リン・鉄・マンガン・亜鉛・銅・ビタミンA・B1・B2・B3・B5・B6・B9・C・E・K・トリプトファン・スレオニン・ロイシン・イソロイシン・リシン・メチオニン・フェニルアラニン・バリン・ヒスチジン・アルギニン・システイン・チロシン・アラニン・アスパラギン酸・グルタミン酸・セリン・グリシン・プロリン・飽和脂肪酸・オメガ3脂肪酸・オメガ6脂肪酸・C-フィコシアニン・クロロフィルa・総カロテノイド・核酸・スピルラン・グリコーゲン様多糖・β-グルカン様多糖・セルロース'
 
-  const categories = [
-    {
-      title: 'チルドレン',
-      image: '/children.png',
-      benefits: ['集中力向上', '学習能力向上', '骨の成長サポート', '免疫力向上', '食欲向上'],
-    },
-    {
-      title: 'アダルト',
-      image: '/alduts.png',
-      benefits: ['便秘・消化不良改善', '睡眠の質向上', '疲れの軽減', '細胞老化・炎症の抑制', 'ダイエット'],
-    },
-    {
-      title: 'シニア',
-      image: '/seniors.png',
-      benefits: ['睡眠の質向上', '血液循環の改善', '食欲向上・栄養補給', '内臓機能のサポート'],
-    },
-    {
-      title: 'アスリート',
-      image: '/athletes.png',
-      benefits: ['添加物のデトックス', '筋肉疲労回復・持続力向上', '効率的な栄養補給', '炎症回復・抑制', 'トレーニング効果の向上'],
-    },
-    {
-      title: 'ドッグ',
-      image: '/dog.png',
-      benefits: ['涙やけの改善', '糞尿のにおい改善', '食欲増強', '腸内環境の改善', '深い睡眠', '体臭改善'],
-    },
-    {
-      title: 'キャット',
-      image: '/cat.png',
-      benefits: ['涙やけの改善', '糞尿のにおい改善', '食欲増強', '腸内環境の改善', '深い睡眠', '体臭改善'],
-    },
-  ]
+  // categories/benefits配列は削除済み（効能断定を避けるため）
 
   return (
     <section id="cosmetic-function" className="py-5 md:py-5 bg-black">
@@ -427,6 +396,11 @@ export default function IndustryApproach() {
               <div className="text-center pb-6 px-4">
                 <h2 className="text-white text-2xl md:text-4xl font-bold mb-2">Confidence</h2>
                 <p className="text-[#25c760] text-sm md:text-lg">Before & After</p>
+                <p className="text-gray-400 text-xs md:text-sm mt-2">
+                  {language === 'JP' 
+                    ? '※個人の感想です。結果には個人差があります。' 
+                    : '* Individual results may vary. These are personal experiences.'}
+                </p>
               </div>
 
               {/* Grid Layout */}
