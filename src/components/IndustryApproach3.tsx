@@ -165,8 +165,6 @@ Explain the potential benefits of a food with these characteristics:
   const aiServices = [
     { name: 'ChatGPT', url: 'https://chat.openai.com/', logo: '/ai/chatgpt.svg' },
     { name: 'Gemini', url: 'https://gemini.google.com/', logo: '/ai/gemini.svg' },
-    { name: 'Claude', url: 'https://claude.ai/', logo: '/ai/claude.svg' },
-    { name: 'Grok', url: 'https://grok.com/', logo: '/ai/grok.svg' },
   ]
 
   // テキスト（日本語/英語）
