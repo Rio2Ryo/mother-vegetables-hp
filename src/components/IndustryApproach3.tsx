@@ -102,7 +102,7 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
     featuresNote: language === 'JP'
       ? '（腸内機能/睡眠/便/運動機能/二日酔い/疲労等についての効果は各自AIにてお調べください）'
       : '(Please use AI to research the effects on intestinal function, sleep, bowel movements, exercise performance, hangovers, fatigue, etc.)',
-    copyButton: language === 'JP' ? '📋 クリップボードにコピー' : '📋 Copy to Clipboard',
+    copyButton: language === 'JP' ? '成分をコピー' : 'Copy Ingredients',
     copiedMessage: language === 'JP' 
       ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 
       : '✅ Copied! Open an AI service and paste.',
@@ -228,17 +228,13 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
 
         {/* Effects & Benefits Section */}
         <div className="max-w-4xl mx-auto px-4 md:px-4 mt-12 md:mt-16">
-          {/* Effects Title with Separator */}
-          <div className="text-center mb-6 md:mb-8">
-            <p className="text-gray-500 text-xs md:text-sm mb-2">━━━━━━━━━━</p>
-            <h3
-              className="text-lg md:text-3xl font-bold mb-2"
-              style={{ color: '#25c760' }}
-            >
-              {texts.effectsTitle}
-            </h3>
-            <p className="text-gray-500 text-xs md:text-sm">━━━━━━━━━━</p>
-          </div>
+          {/* Effects Title */}
+          <h3
+            className="text-lg md:text-3xl font-bold text-center mb-6 md:mb-8"
+            style={{ color: '#25c760' }}
+          >
+            {texts.effectsTitle}
+          </h3>
 
           {/* Description Paragraphs */}
           <div className="text-gray-300 text-sm md:text-base text-center leading-relaxed mb-8 md:mb-10 space-y-4">
@@ -247,18 +243,23 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
             <p>{texts.effectsDescription3}</p>
           </div>
 
-          {/* Copy Button */}
+          {/* Copy Button - Modern Design with Icon */}
           <div className="flex flex-col items-center gap-4 mb-8">
             <button
               onClick={handleCopy}
-              className="px-6 py-3 md:px-8 md:py-4 rounded-lg font-bold text-sm md:text-lg transition-all duration-300 hover:scale-105"
-              style={{
-                backgroundColor: '#25c760',
-                color: 'white',
-                boxShadow: '0 4px 15px rgba(37, 199, 96, 0.3)',
-              }}
+              className="group flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 rounded-2xl font-bold text-base md:text-lg transition-all duration-300 hover:scale-105 border-2 border-[#25c760] bg-transparent hover:bg-[#25c760]/10"
+              style={{ color: '#25c760' }}
             >
-              {texts.copyButton}
+              {/* Clipboard Icon */}
+              <svg 
+                className="w-5 h-5 md:w-6 md:h-6" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+              </svg>
+              <span>{texts.copyButton}</span>
             </button>
 
             {/* Copied Message */}
@@ -270,7 +271,7 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
           </div>
 
           {/* AI Links Section with Logos */}
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-12">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-6">
             {aiServices.map((service, index) => (
               <a
                 key={index}
@@ -289,21 +290,22 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
             ))}
           </div>
 
+          {/* AI Research Note - Below AI Links */}
+          <p className="text-gray-400 text-xs md:text-sm text-center italic mb-12">
+            {texts.featuresNote}
+          </p>
+
           {/* Features Section */}
           <div className="mt-8 md:mt-12">
-            <div className="text-center mb-6">
-              <p className="text-gray-500 text-xs md:text-sm mb-2">━━━━━━━━━━</p>
-              <h4
-                className="text-base md:text-2xl font-bold mb-2"
-                style={{ color: '#25c760' }}
-              >
-                {texts.featuresTitle}
-              </h4>
-              <p className="text-gray-500 text-xs md:text-sm">━━━━━━━━━━</p>
-            </div>
+            <h4
+              className="text-base md:text-2xl font-bold text-center mb-6"
+              style={{ color: '#25c760' }}
+            >
+              {texts.featuresTitle}
+            </h4>
 
             {/* Features List */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
               {texts.features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-2">
                   <span className="text-green-400 mt-0.5">・</span>
@@ -311,12 +313,6 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
                 </div>
               ))}
             </div>
-
-            {/* Features Note */}
-            <p className="text-gray-400 text-xs md:text-sm text-center italic">
-              {texts.featuresNote}
-            </p>
-            <p className="text-gray-500 text-xs md:text-sm text-center mt-4">━━━━━━━━━━</p>
           </div>
         </div>
       </div>
