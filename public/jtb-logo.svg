@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <rect width="200" height="60" fill="white"/>
+  <g fill="#1a73e8">
+    <path d="M20 20 Q15 20 15 25 L15 35 Q15 45 25 45 L35 45 Q40 45 40 40 L40 20 L30 20 L30 35 Q30 38 27 38 Q24 38 24 35 L24 20 Z"/>
+    <text x="50" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold">JTB総合研究所</text>
+  </g>
+</svg>

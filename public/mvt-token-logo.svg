@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Outer circle with gradient -->
+  <defs>
+    <radialGradient id="coinGradient">
+      <stop offset="0%" style="stop-color:#5a7f5a;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#3d5a3d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2a402a;stop-opacity:1" />
+    </radialGradient>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7fb07f;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#5a8f5a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4a7a4a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Main coin circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#coinGradient)" />
+
+  <!-- Inner rim -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#6a9a6a" stroke-width="1" opacity="0.5" />
+
+  <!-- Logo shape -->
+  <g transform="translate(100, 100)">
+    <!-- Leaf-like shape with spiral -->
+    <path d="M -30,-40 Q -35,-20 -30,0 Q -25,15 -15,25 Q 0,35 15,25 Q 25,15 30,0 Q 35,-20 30,-40 Q 20,-50 0,-45 Q -20,-50 -30,-40 Z"
+          fill="url(#logoGradient)" />
+
+    <!-- Inner leaf shape -->
+    <path d="M -20,-30 Q -25,-15 -20,0 Q -15,10 -7,15 Q 0,20 7,15 Q 15,10 20,0 Q 25,-15 20,-30 Q 12,-38 0,-35 Q -12,-38 -20,-30 Z"
+          fill="#2a402a" opacity="0.7" />
+
+    <!-- Spiral in center -->
+    <path d="M 0,0 Q -5,-5 -5,-10 Q 0,-15 5,-10 Q 10,-5 5,0 Q 0,5 -5,0"
+          fill="none" stroke="#7fb07f" stroke-width="2" stroke-linecap="round" />
+  </g>
+
+  <!-- Shadow effect -->
+  <ellipse cx="100" cy="195" rx="80" ry="8" fill="black" opacity="0.2" />
+</svg>
