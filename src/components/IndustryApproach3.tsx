@@ -78,8 +78,6 @@ export default function IndustryApproach() {
     ? `以下の成分を含む食品について、一般論として期待できる効果を教えてください。
 **断定は避け**、あくまで一般的に知られている情報に基づいてください。
 
-※この成分表は「100g当たり」の数値です。摂取量がXgの場合は、各成分量を比例換算して説明してください。
-
 【出力形式（必ずこの順）】
 
 1) **期待できる効果トップ5**
@@ -116,8 +114,6 @@ export default function IndustryApproach() {
 - ${nutrientsListForPrompt}`
     : `Please tell me about the expected benefits of a food containing the following ingredients.
 **Avoid definitive claims** and base your response on generally known information.
-
-*Note: This ingredient list shows values per 100g. If your intake is X grams, please proportionally adjust each nutrient amount.*
 
 【Output Format (in this order)】
 
