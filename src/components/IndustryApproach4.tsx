@@ -342,25 +342,19 @@ export default function IndustryApproach() {
             {language === 'JP' ? (
               <>
                 <p className="text-white text-[10px] md:text-base leading-relaxed">
-                  世界の医療機関にて医薬品として手術後の傷の修復、
+                  マザーベジタブルは48種類の天然由来成分を配合した
                 </p>
                 <p className="text-white text-[10px] md:text-base leading-relaxed">
-                  やけど跡の改善、がんの治療、肌のテカりなどに使用されている
-                </p>
-                <p className="text-white text-[10px] md:text-base leading-relaxed">
-                  医薬部外品認定マザーベジタブルによる肌の治癒が可能。
+                  スキンケア製品です。毎日のお手入れにご活用ください。
                 </p>
               </>
             ) : (
               <>
                 <p className="text-white text-[10px] md:text-base leading-relaxed">
-                  Mother Vegetable, certified as a medical-grade quasi-drug, is trusted by medical institutions worldwide
+                  Mother Vegetable contains 48 natural-derived ingredients
                 </p>
                 <p className="text-white text-[10px] md:text-base leading-relaxed">
-                  for its healing properties — used in post-surgery recovery, burn scar improvement, cancer care, and even
-                </p>
-                <p className="text-white text-[10px] md:text-base leading-relaxed">
-                  to help control skin shine. It supports the skin's natural ability to heal and restore balance.
+                  for your daily skincare routine.
                 </p>
               </>
             )}

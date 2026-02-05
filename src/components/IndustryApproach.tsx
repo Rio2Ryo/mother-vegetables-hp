@@ -28,7 +28,7 @@ export default function IndustryApproach() {
       title: 'Confidence',
       subtitle: 'for All Skin',
       label: "'SURIKOMU' , 'MAZEKOMU'",
-      description: language === 'JP' ? '肌の治癒効果' : 'Skin Healing Effect',
+      description: language === 'JP' ? '天然由来成分でスキンケア' : 'Natural-derived skincare',
       features: language === 'JP' ? [
         '天然由来の成分を配合',
         'スキンケアにプラスワン',
