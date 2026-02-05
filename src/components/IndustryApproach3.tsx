@@ -21,9 +21,57 @@ export default function IndustryApproach() {
     { name: 'Other Functional Ingredients', nameMobile: ['Other Functional', 'Ingredients'], count: '9 types' },
   ]
 
-  const nutrientsList = language === 'JP'
-    ? 'カリウム・ナトリウム・マグネシウム・カルシウム・リン・鉄・マンガン・亜鉛・銅・ビタミンA・B1・B2・B3・B5・B6・B9・C・E・K・トリプトファン・スレオニン・ロイシン・イソロイシン・リシン・メチオニン・フェニルアラニン・バリン・ヒスチジン・アルギニン・システイン・チロシン・アラニン・アスパラギン酸・グルタミン酸・セリン・グリシン・プロリン・飽和脂肪酸・オメガ3脂肪酸・オメガ6脂肪酸・C-フィコシアニン・クロロフィルa・総カロテノイド・核酸・スピルラン・グリコーゲン様多糖・β-グルカン様多糖・セルロース'
-    : 'Potassium, sodium, magnesium, calcium, phosphorus, iron, manganese, zinc, copper, Vitamin A, B1, B2, B3, B5, B6, B9, C, E, K, tryptophan, threonine, leucine, isoleucine, lysine, methionine, phenylalanine, valine, histidine, arginine, cystine, tyrosine, alanine, aspartic acid, glutamic acid, serine, glycine, proline, saturated fatty acids, omega-3 fatty acids, omega-6 fatty acids, C-phycocyanin, chlorophyll a, total carotenoids, nucleic acids, spirulan, glycogen-like polysaccharides, β-glucan-like polysaccharides, cellulose.'
+  // 成分リスト（グラム数付き・100g当たり）
+  const nutrientsWithAmount = [
+    { name: 'カリウム', amount: '1,360mg', nameEN: 'Potassium' },
+    { name: 'マグネシウム', amount: '195mg', nameEN: 'Magnesium' },
+    { name: 'カルシウム', amount: '120mg', nameEN: 'Calcium' },
+    { name: 'リン', amount: '118mg', nameEN: 'Phosphorus' },
+    { name: '鉄', amount: '28.5mg', nameEN: 'Iron' },
+    { name: 'マンガン', amount: '1.9mg', nameEN: 'Manganese' },
+    { name: '亜鉛', amount: '2.0mg', nameEN: 'Zinc' },
+    { name: '銅', amount: '0.3~0.4mg', nameEN: 'Copper' },
+    { name: 'ビタミンA', amount: '約100mg', nameEN: 'Vitamin A' },
+    { name: 'ビタミンB1', amount: '2.38mg', nameEN: 'Vitamin B1' },
+    { name: 'ビタミンB2', amount: '3.67mg', nameEN: 'Vitamin B2' },
+    { name: 'ビタミンB3', amount: '12.8mg', nameEN: 'Vitamin B3' },
+    { name: 'ビタミンB5', amount: '3.48mg', nameEN: 'Vitamin B5' },
+    { name: 'ビタミンB6', amount: '0.36mg', nameEN: 'Vitamin B6' },
+    { name: 'ビタミンB9', amount: '94μg', nameEN: 'Vitamin B9' },
+    { name: 'ビタミンC', amount: '10mg', nameEN: 'Vitamin C' },
+    { name: 'ビタミンE', amount: '5mg', nameEN: 'Vitamin E' },
+    { name: 'ビタミンK', amount: '25.5μg', nameEN: 'Vitamin K' },
+    { name: 'トリプトファン', amount: '0.93g', nameEN: 'Tryptophan' },
+    { name: 'スレオニン', amount: '2.97g', nameEN: 'Threonine' },
+    { name: 'ロイシン', amount: '4.95g', nameEN: 'Leucine' },
+    { name: 'イソロイシン', amount: '3.21g', nameEN: 'Isoleucine' },
+    { name: 'リシン', amount: '3.03g', nameEN: 'Lysine' },
+    { name: 'メチオニン', amount: '1.15g', nameEN: 'Methionine' },
+    { name: 'フェニルアラニン', amount: '2.78g', nameEN: 'Phenylalanine' },
+    { name: 'バリン', amount: '3.51g', nameEN: 'Valine' },
+    { name: 'ヒスチジン', amount: '1.09g', nameEN: 'Histidine' },
+    { name: 'アルギニン', amount: '4.15g', nameEN: 'Arginine' },
+    { name: 'システイン', amount: '0.66g', nameEN: 'Cysteine' },
+    { name: 'チロシン', amount: '2.58g', nameEN: 'Tyrosine' },
+    { name: 'アラニン', amount: '4.52g', nameEN: 'Alanine' },
+    { name: 'アスパラギン酸', amount: '5.79g', nameEN: 'Aspartic Acid' },
+    { name: 'グルタミン酸', amount: '8.39g', nameEN: 'Glutamic Acid' },
+    { name: 'セリン', amount: '3.00g', nameEN: 'Serine' },
+    { name: 'グリシン', amount: '3.10g', nameEN: 'Glycine' },
+    { name: 'プロリン', amount: '2.38g', nameEN: 'Proline' },
+    { name: '飽和脂肪酸', amount: '約2g', nameEN: 'Saturated Fatty Acids' },
+    { name: 'オメガ3脂肪酸', amount: '約100mg', nameEN: 'Omega-3 Fatty Acids' },
+    { name: 'オメガ6脂肪酸', amount: '約1.5g', nameEN: 'Omega-6 Fatty Acids' },
+    { name: 'C-フィコシアニン', amount: '約16-20g', nameEN: 'C-Phycocyanin' },
+    { name: 'クロロフィルa', amount: '0.3~1.1%', nameEN: 'Chlorophyll a' },
+    { name: '総カロテノイド', amount: '0.03~0.5%', nameEN: 'Total Carotenoids' },
+    { name: '核酸', amount: '4~6%', nameEN: 'Nucleic Acids' },
+  ]
+
+  // プロンプト用の成分リスト（グラム数付き）
+  const nutrientsListForPrompt = nutrientsWithAmount
+    .map(n => language === 'JP' ? `${n.name}: ${n.amount}` : `${n.nameEN}: ${n.amount}`)
+    .join('\n- ')
 
   // プロンプトテンプレート（日本語/英語）- 効果効能＋裏付けを引き出す
   const promptTemplate = language === 'JP'
@@ -42,8 +90,8 @@ export default function IndustryApproach() {
 
 4) **免責**：これは医療アドバイスではありません。詳細は専門家にご相談ください。
 
-【成分リスト】
-${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
+【成分リスト（100g当たり）】
+- ${nutrientsListForPrompt}`
     : `Please organize the **main effects and benefits** of the following ingredient list based on generally known information.
 **Avoid definitive claims** and provide evidence strength and sources.
 
@@ -59,8 +107,8 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
 
 4) **Disclaimer**: This is NOT medical advice. Please consult a professional for details.
 
-【Ingredient List】
-${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
+【Ingredient List (per 100g)】
+- ${nutrientsListForPrompt}`
 
   // コピー機能
   const handleCopy = async () => {
@@ -217,24 +265,30 @@ ${nutrientsList.split('・').map(n => `- ${n}`).join('\n')}`
             ))}
           </div>
 
-          {/* 48 Nutrients Title */}
+          {/* Nutrients Title */}
           <h3
-            className="text-lg md:text-3xl font-bold text-center mb-4 md:mb-6"
+            className="text-lg md:text-3xl font-bold text-center mb-2"
             style={{ color: '#25c760' }}
           >
-            48 Nutrients
+            {language === 'JP' ? '栄養成分表示' : 'Nutrition Facts'}
           </h3>
+          <p className="text-gray-400 text-xs md:text-sm text-center mb-4 md:mb-6">
+            {language === 'JP' ? '（100g当たり）' : '(per 100g)'}
+          </p>
 
-          {/* Nutrients Grid - 成分表 */}
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 md:gap-3">
-            {nutrientsList.split('・').map((nutrient, index) => (
+          {/* Nutrients Grid - 成分表（グラム数付き） */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3">
+            {nutrientsWithAmount.map((nutrient, index) => (
               <div
                 key={index}
-                className="border border-green-500/40 rounded-lg px-1.5 py-2 md:px-3 md:py-2.5 text-center bg-green-900/20 hover:bg-green-900/40 transition-colors min-h-[40px] md:min-h-[50px] flex items-center justify-center"
+                className="border border-green-500/40 rounded-lg px-2 py-2 md:px-3 md:py-3 bg-green-900/20 hover:bg-green-900/40 transition-colors"
               >
-                <span className="text-gray-200 text-[8px] md:text-xs leading-tight break-words">
-                  {nutrient.trim()}
-                </span>
+                <div className="text-gray-200 text-[9px] md:text-xs font-medium">
+                  {language === 'JP' ? nutrient.name : nutrient.nameEN}
+                </div>
+                <div className="text-green-400 text-[10px] md:text-sm font-bold">
+                  {nutrient.amount}
+                </div>
               </div>
             ))}
           </div>
