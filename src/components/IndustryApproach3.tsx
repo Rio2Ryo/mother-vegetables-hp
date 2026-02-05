@@ -75,7 +75,7 @@ export default function IndustryApproach() {
 
   // プロンプトテンプレート（日本語/英語）- 効果トップ5 + 裏付け成分
   const promptTemplate = language === 'JP'
-    ? `以下の成分を含む食品について、一般論として期待できる効果を教えてください。
+    ? `以下の成分を含む食品について、期待できる効果を教えてください。
 **断定は避け**、あくまで一般的に知られている情報に基づいてください。
 
 【出力形式（必ずこの順）】
@@ -84,7 +84,7 @@ export default function IndustryApproach() {
 以下の成分群から期待できる主な効果を、重要度順に5つ挙げてください。
 ※最も多く含まれる成分はフィコシアニン（C-フィコシアニン：約16-20g/100g）です。
 各効果について：
-- どのような効果が期待できるか（一般論）
+- どのような効果が期待できるか
 - その効果の裏付けとなる成分（この成分リストの中から該当するもの）
 - なぜその成分が効くとされているか（簡潔に）
 
@@ -113,7 +113,7 @@ export default function IndustryApproach() {
 【成分リスト（100g当たり）】
 - ${nutrientsListForPrompt}`
     : `Please tell me about the expected benefits of a food containing the following ingredients.
-**Avoid definitive claims** and base your response on generally known information.
+**Avoid definitive claims**.
 
 【Output Format (in this order)】
 
@@ -121,7 +121,7 @@ export default function IndustryApproach() {
 List the top 5 expected benefits from this ingredient group, in order of importance.
 *Note: The most abundant ingredient is Phycocyanin (C-Phycocyanin: approx. 16-20g/100g).*
 For each benefit:
-- What effect can be expected (general knowledge)
+- What effect can be expected
 - Supporting ingredients from this list
 - Why these ingredients are believed to be effective (briefly)
 
