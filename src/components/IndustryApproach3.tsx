@@ -96,7 +96,7 @@ export default function IndustryApproach() {
 - 便通
 - 運動機能
 - 二日酔い
-- 疲労回復
+- 疲労
 
 3) **この食品の特性について**
 以下の特性を持つ食品として、どのようなメリットが考えられるか説明してください：
@@ -134,7 +134,7 @@ Explain the expected effects from this ingredient group in the following areas:
 - Bowel movements
 - Exercise performance
 - Hangover recovery
-- Fatigue recovery
+- Fatigue
 
 3) **About This Food's Characteristics**
 Explain the potential benefits of a food with these characteristics:
