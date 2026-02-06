@@ -21,31 +21,21 @@ export default function IndustryApproach() {
     { name: 'Other Functional Ingredients', nameMobile: ['Other Functional', 'Ingredients'], count: '9 types' },
   ]
 
-  // 成分リスト（グラム数付き・100g当たり）
+  // 栄養成分表示（100g当たり）
+  // 表の順番は「左上から下に順番（列を下→次の列へ）」で固定
   const nutrientsWithAmount = [
-    { name: 'カリウム', amount: '1,360mg', nameEN: 'Potassium' },
-    { name: 'マグネシウム', amount: '195mg', nameEN: 'Magnesium' },
-    { name: 'カルシウム', amount: '120mg', nameEN: 'Calcium' },
-    { name: 'リン', amount: '118mg', nameEN: 'Phosphorus' },
-    { name: '鉄', amount: '28.5mg', nameEN: 'Iron' },
-    { name: 'マンガン', amount: '1.9mg', nameEN: 'Manganese' },
-    { name: '亜鉛', amount: '2.0mg', nameEN: 'Zinc' },
-    { name: '銅', amount: '0.3~0.4mg', nameEN: 'Copper' },
-    { name: 'ビタミンA', amount: '約100mg', nameEN: 'Vitamin A' },
-    { name: 'ビタミンB1', amount: '2.38mg', nameEN: 'Vitamin B1' },
-    { name: 'ビタミンB2', amount: '3.67mg', nameEN: 'Vitamin B2' },
-    { name: 'ビタミンB3', amount: '12.8mg', nameEN: 'Vitamin B3' },
-    { name: 'ビタミンB5', amount: '3.48mg', nameEN: 'Vitamin B5' },
-    { name: 'ビタミンB6', amount: '0.36mg', nameEN: 'Vitamin B6' },
-    { name: 'ビタミンB9', amount: '94μg', nameEN: 'Vitamin B9' },
-    { name: 'ビタミンC', amount: '10mg', nameEN: 'Vitamin C' },
-    { name: 'ビタミンE', amount: '5mg', nameEN: 'Vitamin E' },
-    { name: 'ビタミンK', amount: '25.5μg', nameEN: 'Vitamin K' },
+    // col 1
+    { name: 'エネルギー（kcal）', amount: '398kcal', nameEN: 'Energy (kcal)' },
+    { name: 'たんぱく質', amount: '65g', nameEN: 'Protein' },
+    { name: 'C-フィコシアニン', amount: '約16-20g', nameEN: 'C-Phycocyanin' },
+    { name: 'アミノ酸組成（加水分解後の推定値）', amount: '/', nameEN: 'Amino Acid Profile (estimated after hydrolysis)' },
     { name: 'トリプトファン', amount: '0.93g', nameEN: 'Tryptophan' },
     { name: 'スレオニン', amount: '2.97g', nameEN: 'Threonine' },
-    { name: 'ロイシン', amount: '4.95g', nameEN: 'Leucine' },
     { name: 'イソロイシン', amount: '3.21g', nameEN: 'Isoleucine' },
+    { name: 'ロイシン', amount: '4.95g', nameEN: 'Leucine' },
     { name: 'リシン', amount: '3.03g', nameEN: 'Lysine' },
+
+    // col 2
     { name: 'メチオニン', amount: '1.15g', nameEN: 'Methionine' },
     { name: 'フェニルアラニン', amount: '2.78g', nameEN: 'Phenylalanine' },
     { name: 'バリン', amount: '3.51g', nameEN: 'Valine' },
@@ -55,22 +45,62 @@ export default function IndustryApproach() {
     { name: 'チロシン', amount: '2.58g', nameEN: 'Tyrosine' },
     { name: 'アラニン', amount: '4.52g', nameEN: 'Alanine' },
     { name: 'アスパラギン酸', amount: '5.79g', nameEN: 'Aspartic Acid' },
+
+    // col 3
     { name: 'グルタミン酸', amount: '8.39g', nameEN: 'Glutamic Acid' },
-    { name: 'セリン', amount: '3.00g', nameEN: 'Serine' },
     { name: 'グリシン', amount: '3.10g', nameEN: 'Glycine' },
     { name: 'プロリン', amount: '2.38g', nameEN: 'Proline' },
+    { name: 'セリン', amount: '3.00g', nameEN: 'Serine' },
+    { name: '脂質', amount: '6.5g', nameEN: 'Fat' },
     { name: '飽和脂肪酸', amount: '約2g', nameEN: 'Saturated Fatty Acids' },
-    { name: 'オメガ3脂肪酸', amount: '約100mg', nameEN: 'Omega-3 Fatty Acids' },
-    { name: 'オメガ6脂肪酸', amount: '約1.5g', nameEN: 'Omega-6 Fatty Acids' },
-    { name: 'C-フィコシアニン', amount: '約16-20g', nameEN: 'C-Phycocyanin' },
-    { name: 'クロロフィルa', amount: '0.3~1.1%', nameEN: 'Chlorophyll a' },
-    { name: '総カロテノイド', amount: '0.03~0.5%', nameEN: 'Total Carotenoids' },
+    { name: 'オメガ3脂肪酸（α-リノレン酸含む）', amount: '約100mg', nameEN: 'Omega-3 Fatty Acids (incl. ALA)' },
+    { name: 'オメガ6脂肪酸（γ-リノレン酸含む）', amount: '約1.5g', nameEN: 'Omega-6 Fatty Acids (incl. GLA)' },
+    { name: '炭水化物', amount: '20g', nameEN: 'Carbohydrates' },
+
+    // col 4
+    { name: '糖質', amount: '8g', nameEN: 'Sugar' },
+    { name: '食物繊維', amount: '12g', nameEN: 'Dietary Fiber' },
+    { name: 'ミネラル', amount: '8g', nameEN: 'Minerals' },
+    { name: '食塩相当量（推定値）', amount: '1,050mg', nameEN: 'Salt Equivalent (estimated)' },
+    { name: 'カリウム', amount: '1,360mg', nameEN: 'Potassium' },
+    { name: 'マグネシウム', amount: '195mg', nameEN: 'Magnesium' },
+    { name: 'カルシウム', amount: '120mg', nameEN: 'Calcium' },
+    { name: 'リン', amount: '118mg', nameEN: 'Phosphorus' },
+    { name: '鉄', amount: '28.5mg', nameEN: 'Iron' },
+
+    // col 5
+    { name: '亜鉛', amount: '2.0mg', nameEN: 'Zinc' },
+    { name: '銅', amount: '0.3~0.4mg', nameEN: 'Copper' },
+    { name: 'マンガン', amount: '1.9mg', nameEN: 'Manganese' },
+    { name: 'ビタミン類', amount: '/', nameEN: 'Vitamins' },
+    { name: 'ビタミンA（β-カロテン由来）', amount: '約100mg', nameEN: 'Vitamin A (from β-carotene)' },
+    { name: 'ビタミンE', amount: '5mg', nameEN: 'Vitamin E' },
+    { name: 'ビタミンK', amount: '25.5μg', nameEN: 'Vitamin K' },
+    { name: 'ビタミンB1', amount: '2.38mg', nameEN: 'Vitamin B1' },
+    { name: 'ビタミンB2', amount: '3.67mg', nameEN: 'Vitamin B2' },
+
+    // col 6
+    { name: 'ビタミンB3', amount: '12.8mg', nameEN: 'Vitamin B3' },
+    { name: 'ビタミンB5', amount: '3.48mg', nameEN: 'Vitamin B5' },
+    { name: 'ビタミンB6', amount: '0.36mg', nameEN: 'Vitamin B6' },
+    { name: 'ビタミンB9', amount: '94μg', nameEN: 'Vitamin B9' },
+    { name: 'ビタミンC', amount: '10mg', nameEN: 'Vitamin C' },
+    { name: 'クロロフィルa（葉緑素）', amount: '0.3~1.1%', nameEN: 'Chlorophyll a' },
+    { name: 'カロテノイド', amount: '0.03~0.5%', nameEN: 'Carotenoids' },
     { name: '核酸', amount: '4~6%', nameEN: 'Nucleic Acids' },
+    { name: '水分', amount: '3~7%', nameEN: 'Moisture' },
   ]
 
   // プロンプト用の成分リスト（グラム数付き）
   const nutrientsListForPrompt = nutrientsWithAmount
-    .map(n => language === 'JP' ? `${n.name}: ${n.amount}` : `${n.nameEN}: ${n.amount.replace(/約/g, 'approx. ')}`)
+    .map(n => {
+      if (language === 'JP') return `${n.name}: ${n.amount}`
+      // 英語側の表記ゆれを最低限整形
+      const amountEN = n.amount
+        .replace(/約/g, 'approx. ')
+        .replace(/μg/g, 'mcg')
+      return `${n.nameEN}: ${amountEN}`
+    })
     .join('\n- ')
 
   // プロンプトテンプレート（日本語/英語）- 効果トップ5 + 裏付け成分
@@ -314,8 +344,9 @@ Explain the potential benefits of a food with these characteristics:
             {language === 'JP' ? '（100g当たり）' : '(per 100g)'}
           </p>
 
-          {/* Nutrients Grid - 成分表（グラム数付き） */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3">
+          {/* Nutrition Facts Grid */}
+          {/* PCでは「左上→下へ（列方向）」で並ぶように column flow にする */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-flow-col md:grid-rows-9 md:auto-cols-fr gap-2 md:gap-3">
             {nutrientsWithAmount.map((nutrient, index) => (
               <div
                 key={index}
