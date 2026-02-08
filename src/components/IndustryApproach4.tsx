@@ -209,9 +209,134 @@ export default function IndustryApproach() {
     { name: '水分', amount: '0.1g', nameEN: 'Moisture' },
     { name: 'たんぱく質', amount: '2.5g', nameEN: 'Protein' },
     { name: '脂質', amount: '0.1g未満', nameEN: 'Fat' },
-    { name: '炭水化物', amount: '0.4g', nameEN: 'Carbohydrates' },
-    { name: '灰分', amount: '97.1g', nameEN: 'Ash' },
+    { name: '炭水化物（食物繊維）', amount: '0.4g', nameEN: 'Carbohydrates (Dietary Fiber)' },
+    { name: '無水ケイ酸', amount: '97.1g', nameEN: 'Anhydrous Silica' },
   ]
+
+  // コピー状態
+  const [copied, setCopied] = useState(false)
+
+  // プロンプト用の成分リスト
+  const cosmeticNutrientsListForPrompt = cosmeticNutrients
+    .map(n => {
+      if (language === 'JP') return `${n.name}: ${n.amount}`
+      const amountEN = n.amount.replace(/未満/g, 'or less')
+      return `${n.nameEN}: ${amountEN}`
+    })
+    .join('\n- ')
+
+  // Cosmetic用プロンプトテンプレート（肌向け）
+  const cosmeticPromptTemplate = language === 'JP'
+    ? `以下の成分を含むスキンケア製品について、肌に使用した場合の期待できる効果を教えてください。
+**断定は避け**、あくまで一般的に知られている情報に基づいてください。
+
+【出力形式（必ずこの順）】
+
+1) **期待できる効果トップ5（肌に使う場合）**
+以下の成分群から期待できる主な効果を、重要度順に5つ挙げてください。
+各効果について：
+- どのような効果が期待できるか
+- その効果の裏付けとなる成分（この成分リストの中から該当するもの）
+- なぜその成分が肌に効くとされているか（簡潔に）
+
+2) **特定領域への期待される効果（肌向け）**
+以下の領域について、この成分群から期待できる効果を説明してください：
+- 保湿
+- バリア機能
+- 皮脂・テカり
+- 肌荒れ
+- くすみ・トーンアップ
+- 毛穴
+
+3) **この製品の特性について**
+以下の特性を持つスキンケア製品として、どのようなメリットが考えられるか説明してください：
+・植物や藻の始祖にあたる天然素材のみを使用
+・固い外核や細胞壁を持たない（肌への浸透への影響）
+・完全室内培養（Closed Bioreactor System）
+・重金属・マイクロプラスチック汚染リスクを極限まで排除
+・虫・鳥類・外来微生物などの混入が起こらない培養環境
+・農薬・化学肥料 不使用
+・食品添加物 不使用
+・保存料・人工着色料・香料 不使用
+
+4) **免責**：これは医療アドバイスではありません。詳細は専門家にご相談ください。
+
+【主要成分（100g当たり）】
+- ${cosmeticNutrientsListForPrompt}`
+    : `Please tell me about the expected benefits when applying the following ingredients to the skin.
+**Avoid definitive claims**.
+
+【Output Format (in this order)】
+
+1) **Top 5 Expected Benefits (for skin use)**
+List the top 5 expected benefits from this ingredient group for skin, in order of importance.
+For each benefit:
+- What effect can be expected
+- Supporting ingredients from this list
+- Why these ingredients are believed to be effective for skin (briefly)
+
+2) **Expected Effects in Specific Areas (for skin)**
+Explain the expected effects from this ingredient group in the following areas:
+- Moisturizing
+- Barrier function
+- Sebum / Oiliness
+- Skin irritation
+- Dullness / Tone-up
+- Pores
+
+3) **About This Product's Characteristics**
+Explain the potential benefits of a skincare product with these characteristics:
+・Uses only natural ingredients derived from the ancestor of plants and algae
+・Has no hard outer shell or cell wall (impact on skin absorption)
+・Completely indoor cultivation (Closed Bioreactor System)
+・Minimized risk of heavy metal and microplastic contamination
+・Cultivation environment free from insects, birds, and foreign microorganisms
+・No pesticides or chemical fertilizers
+・No food additives
+・No preservatives, artificial colors, or fragrances
+
+4) **Disclaimer**: This is NOT medical advice. Please consult a professional for details.
+
+【Main Ingredients (per 100g)】
+- ${cosmeticNutrientsListForPrompt}`
+
+  // コピー機能
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(cosmeticPromptTemplate)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 3000)
+    } catch (err) {
+      console.error('Failed to copy:', err)
+    }
+  }
+
+  // AIサービスリンク（ロゴ付き）
+  const aiServices = [
+    { name: 'ChatGPT', url: 'https://chat.openai.com/', logo: '/ai/chatgpt.svg' },
+    { name: 'Gemini', url: 'https://gemini.google.com/', logo: '/ai/gemini.svg' },
+  ]
+
+  // テキスト（日本語/英語）
+  const cosmeticTexts = {
+    effectsTitle: language === 'JP' ? '効果効能について' : 'About Effects & Benefits',
+    effectsDescription1: language === 'JP'
+      ? '我々Mother Vegetableグループは世界各地で活動を行っているため、効果効能に関する表現についても各国の法律・ガイドラインを遵守します。'
+      : 'The Mother Vegetable Group operates worldwide, and we comply with the laws and guidelines of each country regarding the expression of effects and benefits.',
+    effectsDescription2: language === 'JP'
+      ? '私たちは地球と生命の未来基準を創る存在として、表現においても世界基準の責任を担うパイオニアであり続けます。'
+      : 'As pioneers creating future standards for Earth and life, we continue to bear the responsibility of global standards in our expressions.',
+    effectsDescription3: language === 'JP'
+      ? 'そこで、Mother Vegetable Confidenceについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押して内容をコピーし、ChatGPTやGeminiなどのAIに、この成分を肌に使うとどのようになるかについて各自お調べください。'
+      : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Confidence. Please click the "Copy to Clipboard" button below, and use AI services like ChatGPT or Gemini to research what happens when you apply these ingredients to your skin.',
+    copyButton: language === 'JP' ? 'クリップボードにコピー' : 'Copy to clipboard',
+    copiedMessage: language === 'JP' 
+      ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 
+      : '✅ Copied! Open an AI service and paste.',
+    featuresNote: language === 'JP'
+      ? '（保湿/バリア機能/皮脂・テカり/肌荒れ/くすみ等についての効果は各自AIにてお調べください）'
+      : '(Please use AI to research the effects on moisturizing, barrier function, sebum, skin irritation, dullness, etc.)',
+  }
 
   // categories/benefits配列は削除済み（効能断定を避けるため）
 
@@ -337,6 +462,76 @@ export default function IndustryApproach() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Effects & Benefits Section (Cosmetic) */}
+        <div className="max-w-4xl mx-auto px-4 md:px-4 mt-12 md:mt-16">
+          {/* Effects Title */}
+          <h3
+            className="text-lg md:text-3xl font-bold text-center mb-6 md:mb-8"
+            style={{ color: '#25c760' }}
+          >
+            {cosmeticTexts.effectsTitle}
+          </h3>
+
+          {/* Description Paragraphs */}
+          <div className="text-gray-300 text-sm md:text-base text-left leading-relaxed mb-8 md:mb-10 space-y-4 max-w-3xl mx-auto">
+            <p>{cosmeticTexts.effectsDescription1}</p>
+            <p>{cosmeticTexts.effectsDescription2}</p>
+            <p>{cosmeticTexts.effectsDescription3}</p>
+          </div>
+
+          {/* Copy Button */}
+          <div className="flex flex-col items-center gap-4 mb-8">
+            <button
+              onClick={handleCopy}
+              className="group flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 rounded-2xl font-bold text-base md:text-lg transition-all duration-300 hover:scale-105 border-2 border-[#25c760] bg-transparent hover:bg-[#25c760]/10 whitespace-nowrap"
+              style={{ color: '#25c760' }}
+            >
+              {/* Clipboard Icon */}
+              <svg 
+                className="w-5 h-5 md:w-6 md:h-6" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+              </svg>
+              <span>{cosmeticTexts.copyButton}</span>
+            </button>
+
+            {/* Copied Message */}
+            {copied && (
+              <p className="text-green-400 text-sm md:text-base animate-pulse">
+                {cosmeticTexts.copiedMessage}
+              </p>
+            )}
+          </div>
+
+          {/* AI Links Section with Logos */}
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-6">
+            {aiServices.map((service, index) => (
+              <a
+                key={index}
+                href={service.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-3 md:px-6 md:py-3 rounded-xl font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105 bg-gray-800 hover:bg-gray-700 border border-gray-600"
+              >
+                <img 
+                  src={service.logo} 
+                  alt={service.name} 
+                  className="w-5 h-5 md:w-6 md:h-6"
+                />
+                <span className="text-white">{service.name}</span>
+              </a>
+            ))}
+          </div>
+
+          {/* AI Research Note */}
+          <p className="text-gray-400 text-xs md:text-sm text-center italic mb-12">
+            {cosmeticTexts.featuresNote}
+          </p>
         </div>
 
         {/* Skin Section */}
