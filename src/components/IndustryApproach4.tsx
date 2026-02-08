@@ -260,7 +260,7 @@ export default function IndustryApproach() {
 
 4) **免責**：これは医療アドバイスではありません。詳細は専門家にご相談ください。
 
-【主要成分（100g当たり）】
+【成分表示（100g当たり）】
 - ${cosmeticNutrientsListForPrompt}`
     : `Please tell me about the expected benefits when applying the following ingredients to the skin.
 **Avoid definitive claims**.
@@ -295,7 +295,7 @@ Explain the potential benefits of a skincare product with these characteristics:
 
 4) **Disclaimer**: This is NOT medical advice. Please consult a professional for details.
 
-【Main Ingredients (per 100g)】
+【Ingredient Information (per 100g)】
 - ${cosmeticNutrientsListForPrompt}`
 
   // コピー機能
@@ -435,14 +435,11 @@ Explain the potential benefits of a skincare product with these characteristics:
 
           {/* 成分表示 */}
           <h3
-            className="text-lg md:text-3xl font-bold text-center mb-2"
+            className="text-lg md:text-3xl font-bold text-center mb-4 md:mb-6"
             style={{ color: '#25c760' }}
           >
-            {language === 'JP' ? '成分表示' : 'Ingredients'}
+            {language === 'JP' ? '成分表示（100g当たり）' : 'Ingredient Information (per 100g)'}
           </h3>
-          <p className="text-gray-400 text-xs md:text-sm text-center mb-4 md:mb-6">
-            {language === 'JP' ? '（100g当たり）' : '(per 100g)'}
-          </p>
 
           {/* 成分グリッド */}
           <div className="grid grid-cols-5 gap-2 md:gap-3 mb-8">
