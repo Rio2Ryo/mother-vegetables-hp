@@ -243,10 +243,9 @@ export default function IndustryApproach() {
 以下の領域について、この成分群から期待できる効果を説明してください：
 - 保湿
 - バリア機能
-- 皮脂・テカり
 - 肌荒れ
-- くすみ・トーンアップ
-- 毛穴
+- 皮脂・テカり
+- くすみ（トーン）
 
 3) **この製品の特性について**
 以下の特性を持つスキンケア製品として、どのようなメリットが考えられるか説明してください：
@@ -279,10 +278,9 @@ For each benefit:
 Explain the expected effects from this ingredient group in the following areas:
 - Moisturizing
 - Barrier function
-- Sebum / Oiliness
 - Skin irritation
-- Dullness / Tone-up
-- Pores
+- Sebum / Oiliness
+- Dullness (Tone)
 
 3) **About This Product's Characteristics**
 Explain the potential benefits of a skincare product with these characteristics:
@@ -334,8 +332,8 @@ Explain the potential benefits of a skincare product with these characteristics:
       ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 
       : '✅ Copied! Open an AI service and paste.',
     featuresNote: language === 'JP'
-      ? '（保湿/バリア機能/皮脂・テカり/肌荒れ/くすみ等についての効果は各自AIにてお調べください）'
-      : '(Please use AI to research the effects on moisturizing, barrier function, sebum, skin irritation, dullness, etc.)',
+      ? '（保湿/バリア機能/肌荒れ/皮脂・テカり/くすみ等についての効果は各自AIにてお調べください）'
+      : '(Please use AI to research the effects on moisturizing, barrier function, skin irritation, sebum, dullness, etc.)',
   }
 
   // categories/benefits配列は削除済み（効能断定を避けるため）
