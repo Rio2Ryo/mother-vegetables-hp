@@ -35,7 +35,6 @@ export default function IndustryApproach() {
   const nutrientsWithAmount = [
     // col 1 - たんぱく質の内訳
     { name: 'C-フィコシアニン', amount: '約16-20g', nameEN: 'C-Phycocyanin' },
-    { name: 'アミノ酸組成（加水分解後の推定値）', amount: '/', nameEN: 'Amino Acid Profile (estimated after hydrolysis)' },
     { name: 'トリプトファン', amount: '0.93g', nameEN: 'Tryptophan' },
     { name: 'スレオニン', amount: '2.97g', nameEN: 'Threonine' },
     { name: 'イソロイシン', amount: '3.21g', nameEN: 'Isoleucine' },
@@ -77,7 +76,6 @@ export default function IndustryApproach() {
     { name: '亜鉛', amount: '2.0mg', nameEN: 'Zinc' },
     { name: '銅', amount: '0.3~0.4mg', nameEN: 'Copper' },
     { name: 'マンガン', amount: '1.9mg', nameEN: 'Manganese' },
-    { name: 'ビタミン類', amount: '/', nameEN: 'Vitamins' },
     { name: 'ビタミンA（β-カロテン由来）', amount: '約100mg', nameEN: 'Vitamin A (from β-carotene)' },
     { name: 'ビタミンE', amount: '5mg', nameEN: 'Vitamin E' },
     { name: 'ビタミンK', amount: '25.5μg', nameEN: 'Vitamin K' },
