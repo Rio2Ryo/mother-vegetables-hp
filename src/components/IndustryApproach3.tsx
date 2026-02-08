@@ -342,9 +342,21 @@ Explain the potential benefits of a food with these characteristics:
           >
             {language === 'JP' ? '栄養成分表示' : 'Nutrition Facts'}
           </h3>
-          <p className="text-gray-400 text-xs md:text-sm text-center mb-4 md:mb-6">
+          <p className="text-gray-400 text-xs md:text-sm text-center mb-3 md:mb-4">
             {language === 'JP' ? '（100g当たり）' : '(per 100g)'}
           </p>
+
+          {/* 凡例（レジェンド） */}
+          <div className="flex items-center justify-start gap-4 mb-3 md:mb-4 text-[8px] md:text-xs">
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 md:w-4 md:h-4 border-2 border-green-300 bg-green-800/50 rounded"></div>
+              <span className="text-gray-300">{language === 'JP' ? '主要項目' : 'Main'}</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="w-3 h-3 md:w-4 md:h-4 border border-green-500/40 bg-green-900/20 rounded"></div>
+              <span className="text-gray-300">{language === 'JP' ? '詳細（内訳）' : 'Details'}</span>
+            </div>
+          </div>
 
           {/* Nutrition Facts Grid - 主要項目は色を変えて強調 */}
           {/* PCでは「左上→下へ（列方向）」で並ぶように column flow にする */}
