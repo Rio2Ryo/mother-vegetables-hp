@@ -21,19 +21,16 @@ export default function IndustryApproach() {
     { name: 'Other Functional Ingredients', nameMobile: ['Other Functional', 'Ingredients'], count: '9 types' },
   ]
 
-  // 主要項目（5大栄養素 - 強調表示）
-  const mainNutrients = [
-    { name: 'エネルギー', amount: '398kcal', nameEN: 'Energy' },
-    { name: 'たんぱく質', amount: '65g', nameEN: 'Protein' },
-    { name: '脂質', amount: '6.5g', nameEN: 'Fat' },
-    { name: '炭水化物', amount: '20g', nameEN: 'Carbohydrates' },
-    { name: 'ミネラル', amount: '8g', nameEN: 'Minerals' },
-  ]
+  // 主要項目の名前リスト（色分け用）
+  const mainNutrientNames = ['エネルギー（kcal）', 'たんぱく質', '脂質', '炭水化物', 'ミネラル']
+  const mainNutrientNamesEN = ['Energy (kcal)', 'Protein', 'Fat', 'Carbohydrates', 'Minerals']
 
-  // 栄養成分の内訳（詳細）
+  // 栄養成分表示（100g当たり）
   // 表の順番は「左上から下に順番（列を下→次の列へ）」で固定
   const nutrientsWithAmount = [
-    // col 1 - たんぱく質の内訳
+    // col 1
+    { name: 'エネルギー（kcal）', amount: '398kcal', nameEN: 'Energy (kcal)' },
+    { name: 'たんぱく質', amount: '65g', nameEN: 'Protein' },
     { name: 'C-フィコシアニン', amount: '約16-20g', nameEN: 'C-Phycocyanin' },
     { name: 'アミノ酸組成（加水分解後の推定値）', amount: '/', nameEN: 'Amino Acid Profile (estimated after hydrolysis)' },
     { name: 'トリプトファン', amount: '0.93g', nameEN: 'Tryptophan' },
@@ -58,14 +55,14 @@ export default function IndustryApproach() {
     { name: 'グリシン', amount: '3.10g', nameEN: 'Glycine' },
     { name: 'プロリン', amount: '2.38g', nameEN: 'Proline' },
     { name: 'セリン', amount: '3.00g', nameEN: 'Serine' },
-    // 脂質の内訳
+    { name: '脂質', amount: '6.5g', nameEN: 'Fat' },
     { name: '飽和脂肪酸', amount: '約2g', nameEN: 'Saturated Fatty Acids' },
     { name: 'オメガ3脂肪酸（α-リノレン酸含む）', amount: '約100mg', nameEN: 'Omega-3 Fatty Acids (incl. ALA)' },
     { name: 'オメガ6脂肪酸（γ-リノレン酸含む）', amount: '約1.5g', nameEN: 'Omega-6 Fatty Acids (incl. GLA)' },
-    // 炭水化物の内訳
+    { name: '炭水化物', amount: '20g', nameEN: 'Carbohydrates' },
     { name: '糖質', amount: '8g', nameEN: 'Sugar' },
     { name: '食物繊維', amount: '12g', nameEN: 'Dietary Fiber' },
-    // ミネラルの内訳
+    { name: 'ミネラル', amount: '8g', nameEN: 'Minerals' },
     { name: '食塩相当量（推定値）', amount: '1,050mg', nameEN: 'Salt Equivalent (estimated)' },
     { name: 'カリウム', amount: '1,360mg', nameEN: 'Potassium' },
     { name: 'マグネシウム', amount: '195mg', nameEN: 'Magnesium' },
@@ -96,17 +93,8 @@ export default function IndustryApproach() {
     { name: '水分', amount: '3~7%', nameEN: 'Moisture' },
   ]
 
-  // プロンプト用の主要項目リスト
-  const mainNutrientsListForPrompt = mainNutrients
-    .map(n => {
-      if (language === 'JP') return `${n.name}: ${n.amount}`
-      const amountEN = n.amount.replace(/約/g, 'approx. ')
-      return `${n.nameEN}: ${amountEN}`
-    })
-    .join('\n- ')
-
-  // プロンプト用の詳細成分リスト
-  const detailNutrientsListForPrompt = nutrientsWithAmount
+  // プロンプト用の成分リスト（グラム数付き）
+  const nutrientsListForPrompt = nutrientsWithAmount
     .map(n => {
       if (language === 'JP') return `${n.name}: ${n.amount}`
       // 英語側の表記ゆれを最低限整形
@@ -154,11 +142,8 @@ export default function IndustryApproach() {
 
 4) **免責**：これは医療アドバイスではありません。詳細は専門家にご相談ください。
 
-【主要項目（100g当たり）】
-- ${mainNutrientsListForPrompt}
-
-【栄養分の内訳・詳細（100g当たり）】
-- ${detailNutrientsListForPrompt}`
+【成分リスト（100g当たり）】
+- ${nutrientsListForPrompt}`
     : `Please tell me about the expected benefits of a food containing the following ingredients.
 **Avoid definitive claims**.
 
@@ -194,11 +179,8 @@ Explain the potential benefits of a food with these characteristics:
 
 4) **Disclaimer**: This is NOT medical advice. Please consult a professional for details.
 
-【Main Nutrients (per 100g)】
-- ${mainNutrientsListForPrompt}
-
-【Nutritional Breakdown - Details (per 100g)】
-- ${detailNutrientsListForPrompt}`
+【Ingredient List (per 100g)】
+- ${nutrientsListForPrompt}`
 
   // コピー機能
   const handleCopy = async () => {
@@ -364,49 +346,28 @@ Explain the potential benefits of a food with these characteristics:
             {language === 'JP' ? '（100g当たり）' : '(per 100g)'}
           </p>
 
-          {/* 主要項目（強調表示） */}
-          <div className="mb-6 md:mb-8">
-            <h4 className="text-sm md:text-lg font-bold text-center mb-3 md:mb-4 text-green-300">
-              {language === 'JP' ? '主要項目' : 'Main Nutrients'}
-            </h4>
-            <div className="grid grid-cols-5 gap-2 md:gap-3 max-w-3xl mx-auto">
-              {mainNutrients.map((nutrient, index) => (
+          {/* Nutrition Facts Grid - 主要項目は色を変えて強調 */}
+          {/* PCでは「左上→下へ（列方向）」で並ぶように column flow にする */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-flow-col md:grid-rows-9 md:auto-cols-fr gap-2 md:gap-3">
+            {nutrientsWithAmount.map((nutrient, index) => {
+              const isMain = mainNutrientNames.includes(nutrient.name) || mainNutrientNamesEN.includes(nutrient.nameEN)
+              return (
                 <div
                   key={index}
-                  className="border-2 border-green-400 rounded-lg px-2 py-3 md:px-4 md:py-4 bg-green-900/40 text-center"
+                  className={isMain
+                    ? "border-2 border-green-300 rounded-lg px-2 py-2 md:px-3 md:py-3 bg-green-800/50 hover:bg-green-700/50 transition-colors"
+                    : "border border-green-500/40 rounded-lg px-2 py-2 md:px-3 md:py-3 bg-green-900/20 hover:bg-green-900/40 transition-colors"
+                  }
                 >
-                  <div className="text-gray-100 text-[8px] md:text-sm font-semibold mb-1">
+                  <div className={isMain ? "text-white text-[9px] md:text-xs font-semibold" : "text-gray-200 text-[9px] md:text-xs font-medium"}>
                     {language === 'JP' ? nutrient.name : nutrient.nameEN}
                   </div>
-                  <div className="text-green-300 text-[10px] md:text-lg font-bold">
+                  <div className={isMain ? "text-green-200 text-[10px] md:text-sm font-bold" : "text-green-400 text-[10px] md:text-sm font-bold"}>
                     {language === 'JP' ? nutrient.amount : nutrient.amount.replace(/約/g, 'approx. ')}
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* 栄養分の内訳（詳細） */}
-          <div>
-            <h4 className="text-sm md:text-lg font-bold text-center mb-3 md:mb-4 text-green-500/80">
-              {language === 'JP' ? '栄養分の内訳（詳細）' : 'Nutritional Breakdown (Details)'}
-            </h4>
-            {/* PCでは「左上→下へ（列方向）」で並ぶように column flow にする */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-flow-col md:grid-rows-9 md:auto-cols-fr gap-2 md:gap-3">
-              {nutrientsWithAmount.map((nutrient, index) => (
-                <div
-                  key={index}
-                  className="border border-green-500/40 rounded-lg px-2 py-2 md:px-3 md:py-3 bg-green-900/20 hover:bg-green-900/40 transition-colors"
-                >
-                  <div className="text-gray-200 text-[9px] md:text-xs font-medium">
-                    {language === 'JP' ? nutrient.name : nutrient.nameEN}
-                  </div>
-                  <div className="text-green-400 text-[10px] md:text-sm font-bold">
-                    {language === 'JP' ? nutrient.amount : nutrient.amount.replace(/約/g, 'approx. ')}
-                  </div>
-                </div>
-              ))}
-            </div>
+              )
+            })}
           </div>
         </div>
 
