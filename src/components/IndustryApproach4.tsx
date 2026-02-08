@@ -204,6 +204,15 @@ export default function IndustryApproach() {
 
   const nutrientsList = 'カリウム・ナトリウム・マグネシウム・カルシウム・リン・鉄・マンガン・亜鉛・銅・ビタミンA・B1・B2・B3・B5・B6・B9・C・E・K・トリプトファン・スレオニン・ロイシン・イソロイシン・リシン・メチオニン・フェニルアラニン・バリン・ヒスチジン・アルギニン・システイン・チロシン・アラニン・アスパラギン酸・グルタミン酸・セリン・グリシン・プロリン・飽和脂肪酸・オメガ3脂肪酸・オメガ6脂肪酸・C-フィコシアニン・クロロフィルa・総カロテノイド・核酸・スピルラン・グリコーゲン様多糖・β-グルカン様多糖・セルロース'
 
+  // 主要成分（化粧品用）
+  const cosmeticNutrients = [
+    { name: '水分', amount: '0.1g', nameEN: 'Moisture' },
+    { name: 'たんぱく質', amount: '2.5g', nameEN: 'Protein' },
+    { name: '脂質', amount: '0.1g未満', nameEN: 'Fat' },
+    { name: '炭水化物', amount: '0.4g', nameEN: 'Carbohydrates' },
+    { name: '灰分', amount: '97.1g', nameEN: 'Ash' },
+  ]
+
   // categories/benefits配列は削除済み（効能断定を避けるため）
 
   return (
@@ -301,7 +310,33 @@ export default function IndustryApproach() {
             ))}
           </div>
 
-        
+          {/* 栄養成分表示（主要成分のみ） */}
+          <h3
+            className="text-lg md:text-3xl font-bold text-center mb-2"
+            style={{ color: '#25c760' }}
+          >
+            {language === 'JP' ? '主要成分' : 'Main Ingredients'}
+          </h3>
+          <p className="text-gray-400 text-xs md:text-sm text-center mb-4 md:mb-6">
+            {language === 'JP' ? '（100g当たり）' : '(per 100g)'}
+          </p>
+
+          {/* 成分グリッド */}
+          <div className="grid grid-cols-5 gap-2 md:gap-3 mb-8">
+            {cosmeticNutrients.map((nutrient, index) => (
+              <div
+                key={index}
+                className="border-2 border-green-300 rounded-lg px-2 py-2 md:px-3 md:py-3 bg-green-800/50 hover:bg-green-700/50 transition-colors text-center"
+              >
+                <div className="text-white text-[8px] md:text-xs font-semibold">
+                  {language === 'JP' ? nutrient.name : nutrient.nameEN}
+                </div>
+                <div className="text-green-200 text-[9px] md:text-sm font-bold">
+                  {language === 'JP' ? nutrient.amount : nutrient.amount.replace(/未満/g, 'or less')}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Skin Section */}
