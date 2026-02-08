@@ -188,22 +188,6 @@ export default function IndustryApproach() {
     },
   ]
 
-  const nutrients = language === 'JP' ? [
-    { name: 'しみ', count: 'そばかす' },
-    { name: 'ニキビ', count: 'ニキビ跡' },
-    { name: 'キズ', count: 'キズ跡、やけど跡' },
-    { name: 'ニオイ', count: '顔・首・脇・Vゾーン・足' },
-    { name: 'ツヤ・清潔感', nameMobile: ['ツヤ・清潔感', '自然な'], count: '自然なトーンアップ' },
-  ] : [
-    { name: 'Dark Spots', count: 'Freckles' },
-    { name: 'Acne', count: 'Acne scars' },
-    { name: 'Wounds', count: 'Scars, Burn Marks' },
-    { name: 'Odor', nameMobile: ['Odor', 'Face, Neck,'], count: 'Face, Neck, Underarms, V-Zone, Feet' },
-    { name: 'Shine', nameMobile: ['Shine', 'Maintains A Clean'], count: 'Maintains A Clean Look, Natural/ Earth Tones' },
-  ]
-
-  const nutrientsList = 'カリウム・ナトリウム・マグネシウム・カルシウム・リン・鉄・マンガン・亜鉛・銅・ビタミンA・B1・B2・B3・B5・B6・B9・C・E・K・トリプトファン・スレオニン・ロイシン・イソロイシン・リシン・メチオニン・フェニルアラニン・バリン・ヒスチジン・アルギニン・システイン・チロシン・アラニン・アスパラギン酸・グルタミン酸・セリン・グリシン・プロリン・飽和脂肪酸・オメガ3脂肪酸・オメガ6脂肪酸・C-フィコシアニン・クロロフィルa・総カロテノイド・核酸・スピルラン・グリコーゲン様多糖・β-グルカン様多糖・セルロース'
-
   // 成分表示（化粧品用）
   const cosmeticNutrients = [
     { name: '水分', amount: '0.1g', nameEN: 'Moisture' },
@@ -391,48 +375,6 @@ Explain the potential benefits of a skincare product with these characteristics:
 
         {/* Nutrient Section Container */}
         <div className="max-w-3xl mx-auto px-0 md:px-4">
-          {/* Nutrient Circles */}
-          <div className="flex justify-between items-center gap-1 md:gap-0 mb-8 md:mb-12">
-            {nutrients.map((nutrient, index) => (
-              <div
-                key={index}
-                className="w-[18%] aspect-square md:w-32 md:h-32 rounded-full flex flex-col items-center justify-center text-center"
-                style={{ backgroundColor: '#4a9d7c' }}
-              >
-                {nutrient.nameMobile ? (
-                  <>
-                    {/* Mobile: 3 lines */}
-                    <span className="text-white text-[5px] font-medium leading-tight md:hidden">
-                      {nutrient.nameMobile[0]}
-                    </span>
-                    <span className="text-white text-[5px] font-medium leading-tight md:hidden">
-                      {nutrient.nameMobile[1]}
-                    </span>
-                    <span className="text-white text-[5px] md:hidden">
-                      {nutrient.count}
-                    </span>
-                    {/* Desktop: 2 lines */}
-                    <span className="text-white text-base font-medium leading-tight hidden md:block">
-                      {nutrient.name}
-                    </span>
-                    <span className="text-white text-base hidden md:block">
-                      {nutrient.count}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <span className="text-white text-[5px] md:text-base font-medium leading-tight">
-                      {nutrient.name}
-                    </span>
-                    <span className="text-white text-[5px] md:text-base">
-                      {nutrient.count}
-                    </span>
-                  </>
-                )}
-              </div>
-            ))}
-          </div>
-
           {/* 成分表示 */}
           <h3
             className="text-lg md:text-3xl font-bold text-center mb-4 md:mb-6"
@@ -531,29 +473,6 @@ Explain the potential benefits of a skincare product with these characteristics:
 
         {/* Skin Section */}
         <div className="mt-12 md:mt-16">
-          {/* Description Text */}
-          <div className="text-center mb-6 md:mb-8 px-4">
-            {language === 'JP' ? (
-              <>
-                <p className="text-white text-[10px] md:text-base leading-relaxed">
-                  マザーベジタブルは48種類の天然由来成分を配合した
-                </p>
-                <p className="text-white text-[10px] md:text-base leading-relaxed">
-                  スキンケア製品です。毎日のお手入れにご活用ください。
-                </p>
-              </>
-            ) : (
-              <>
-                <p className="text-white text-[10px] md:text-base leading-relaxed">
-                  Mother Vegetable contains 48 natural-derived ingredients
-                </p>
-                <p className="text-white text-[10px] md:text-base leading-relaxed">
-                  for your daily skincare routine.
-                </p>
-              </>
-            )}
-          </div>
-
           {/* Skin Video */}
           <div className="flex justify-center mb-6 md:mb-8">
             <video
