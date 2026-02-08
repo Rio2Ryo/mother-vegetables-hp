@@ -117,6 +117,17 @@ export default function IndustryApproach() {
     })
     .join('\n- ')
 
+  // プロンプト用の全成分リスト（主要項目＋詳細を1つにまとめる）
+  const allNutrientsListForPrompt = [...mainNutrients, ...nutrientsWithAmount]
+    .map(n => {
+      if (language === 'JP') return `${n.name}: ${n.amount}`
+      const amountEN = n.amount
+        .replace(/約/g, 'approx. ')
+        .replace(/μg/g, 'mcg')
+      return `${n.nameEN}: ${amountEN}`
+    })
+    .join('\n- ')
+
   // プロンプトテンプレート（日本語/英語）- 効果トップ5 + 裏付け成分
   const promptTemplate = language === 'JP'
     ? `以下の成分を含む食品について、期待できる効果を教えてください。
@@ -154,11 +165,8 @@ export default function IndustryApproach() {
 
 4) **免責**：これは医療アドバイスではありません。詳細は専門家にご相談ください。
 
-【主要項目（100g当たり）】
-- ${mainNutrientsListForPrompt}
-
-【栄養分の内訳・詳細（100g当たり）】
-- ${detailNutrientsListForPrompt}`
+【成分リスト（100g当たり）】
+- ${allNutrientsListForPrompt}`
     : `Please tell me about the expected benefits of a food containing the following ingredients.
 **Avoid definitive claims**.
 
@@ -194,11 +202,8 @@ Explain the potential benefits of a food with these characteristics:
 
 4) **Disclaimer**: This is NOT medical advice. Please consult a professional for details.
 
-【Main Nutrients (per 100g)】
-- ${mainNutrientsListForPrompt}
-
-【Nutritional Breakdown - Details (per 100g)】
-- ${detailNutrientsListForPrompt}`
+【Ingredient List (per 100g)】
+- ${allNutrientsListForPrompt}`
 
   // コピー機能
   const handleCopy = async () => {
