@@ -471,33 +471,8 @@ Explain the potential benefits of a skincare product with these characteristics:
           </p>
         </div>
 
-        {/* Skin Section */}
-        <div className="mt-12 md:mt-16">
-          {/* Skin Video */}
-          <div className="flex justify-center mb-6 md:mb-8">
-            <video
-              src="/skin.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full max-w-3xl object-contain rounded-lg"
-            />
-          </div>
-
-          {/* Before & After Button */}
-          <div className="flex justify-center">
-            <button
-              onClick={() => setIsPopupOpen(true)}
-              className="px-8 py-3 border-2 border-[#25c760] text-[#25c760] rounded-full hover:bg-[#25c760] hover:text-black transition-all duration-300 flex items-center gap-2"
-            >
-              <span>✓</span>
-              <span>Before & After</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Popup Modal */}
+        {/* Popup Modal - Hidden */}
+        {/* Skin Video and Before & After Button removed */}
         {isPopupOpen && (
           <div
             className="fixed inset-0 bg-black/90 flex items-center justify-center p-2 md:p-4"
