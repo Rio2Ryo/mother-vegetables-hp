@@ -352,18 +352,6 @@ Explain the potential benefits of a skincare product with these characteristics:
           SURIKOMU / MAZEKOMU
         </p>
 
-        {/* Food Video */}
-        <div className="flex justify-center">
-          <video
-            src="/cosmetic_video.mov"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-24 md:h-24 w-auto object-contain rounded-lg"
-          />
-        </div>
-
         {/* Bracket Image */}
         <div className="flex justify-center mb-4 md:mb-6">
           <img
