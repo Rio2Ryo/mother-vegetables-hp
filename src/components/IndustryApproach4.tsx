@@ -204,12 +204,12 @@ export default function IndustryApproach() {
 
   const nutrientsList = 'カリウム・ナトリウム・マグネシウム・カルシウム・リン・鉄・マンガン・亜鉛・銅・ビタミンA・B1・B2・B3・B5・B6・B9・C・E・K・トリプトファン・スレオニン・ロイシン・イソロイシン・リシン・メチオニン・フェニルアラニン・バリン・ヒスチジン・アルギニン・システイン・チロシン・アラニン・アスパラギン酸・グルタミン酸・セリン・グリシン・プロリン・飽和脂肪酸・オメガ3脂肪酸・オメガ6脂肪酸・C-フィコシアニン・クロロフィルa・総カロテノイド・核酸・スピルラン・グリコーゲン様多糖・β-グルカン様多糖・セルロース'
 
-  // 主要成分（化粧品用）
+  // 成分表示（化粧品用）
   const cosmeticNutrients = [
     { name: '水分', amount: '0.1g', nameEN: 'Moisture' },
-    { name: 'たんぱく質', amount: '2.5g', nameEN: 'Protein' },
+    { name: 'たんぱく質', amount: '2.4~2.6g', nameEN: 'Protein' },
     { name: '脂質', amount: '0.1g未満', nameEN: 'Fat' },
-    { name: '炭水化物（食物繊維）', amount: '0.4g', nameEN: 'Carbohydrates (Dietary Fiber)' },
+    { name: '炭水化物（食物繊維）', amount: '0.3~0.5g', nameEN: 'Carbohydrates (Dietary Fiber)' },
     { name: '無水ケイ酸', amount: '97.1g', nameEN: 'Anhydrous Silica' },
   ]
 
@@ -435,12 +435,12 @@ Explain the potential benefits of a skincare product with these characteristics:
             ))}
           </div>
 
-          {/* 栄養成分表示（主要成分のみ） */}
+          {/* 成分表示 */}
           <h3
             className="text-lg md:text-3xl font-bold text-center mb-2"
             style={{ color: '#25c760' }}
           >
-            {language === 'JP' ? '主要成分' : 'Main Ingredients'}
+            {language === 'JP' ? '成分表示' : 'Ingredients'}
           </h3>
           <p className="text-gray-400 text-xs md:text-sm text-center mb-4 md:mb-6">
             {language === 'JP' ? '（100g当たり）' : '(per 100g)'}
