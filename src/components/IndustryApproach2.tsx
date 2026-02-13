@@ -18,20 +18,20 @@ export default function IndustryApproach() {
     {
       label: 'Achieve',
       text: language === 'JP'
-        ? '厚生労働省からヒューマングレードの食品として認定されています。'
-        : 'certified human grade food by Ministry of Health, Labour and Welfare (MHLW), Japan'
+        ? 'GMP認証取得工場にて製造され、ハラル・ヴィーガン・オーガニック認証原料を使用した製品です。'
+        : 'GMP-certified manufacturing. Halal, Vegan, and Organic certified.'
     },
     {
       label: 'Confidence',
       text: language === 'JP'
-        ? '厚生労働省から化粧品や医薬部外品原料規格として認定されています。'
-        : 'certified cosmetic "The Japanese Standards of Quasi-Drug Ingredients (JSQI)" by MHLW, Japan'
+        ? '厚生労働省が定める医薬部外品原料規格を満たした原料を使用しています。'
+        : 'Materials compliant with Japanese quasi-drug ingredient standards.'
     },
     {
       label: 'Forever',
       text: language === 'JP'
-        ? '農林水産省からペットフードグレードとして認定されています。'
-        : 'certified by pet grade food by Ministry of Agriculture, Forestry and Fisheries (MAFF), Japan'
+        ? '農林水産省のペットフード基準に準拠し、ヒューマングレード品質で管理された製品です。'
+        : 'Compliant with Japan’s pet food standards. Managed at human-grade quality.'
     },
   ]
 
