@@ -8,7 +8,7 @@ export default function IndustryApproach() {
   const products = [
     {
       id: 1,
-      video: '/achieve_video2.mp4',
+      video: '/achieve_video.mp4',
       title: 'Achieve',
       subtitle: 'for Body',
       label: "'TORIKOMU'",
