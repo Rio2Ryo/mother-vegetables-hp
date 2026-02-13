@@ -68,13 +68,15 @@ export default function IndustryApproach() {
         </div>
 
         {/* Trust Text */}
-        <div className="space-y-3 md:space-y-1 text-center">
-          {trustItems.map((item, index) => (
-            <div key={index} className="text-[10px] md:text-base">
-              <p className="text-green-400 font-semibold md:inline md:mr-4">{item.label}</p>
-              <p className="text-gray-300 md:inline">{item.text}</p>
-            </div>
-          ))}
+        <div className="flex justify-center">
+          <div className="space-y-3 md:space-y-1 text-left inline-block">
+            {trustItems.map((item, index) => (
+              <div key={index} className="text-[10px] md:text-base">
+                <p className="text-green-400 font-semibold md:inline md:mr-4">{item.label}</p>
+                <p className="text-gray-300 md:inline">{item.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
