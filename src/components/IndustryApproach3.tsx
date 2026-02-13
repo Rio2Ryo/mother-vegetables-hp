@@ -395,7 +395,7 @@ Explain the potential benefits of a food with these characteristics:
               {language === 'JP' ? '栄養分の内訳（詳細）' : 'Nutritional Breakdown (Details)'}
             </h4>
             {/* PCでは「左上→下へ（列方向）」で並ぶように column flow にする */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-flow-col md:grid-rows-9 md:auto-cols-fr gap-2 md:gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-flow-col md:grid-rows-8 md:auto-cols-fr gap-2 md:gap-3">
               {nutrientsWithAmount.map((nutrient, index) => (
                 <div
                   key={index}

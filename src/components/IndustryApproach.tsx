@@ -137,10 +137,19 @@ export default function IndustryApproach() {
                     </p>
                   </div>
 
-                                  </div>
+                </div>
               </div>
 
-                          </div>
+              {/* Purchase Button */}
+              <div className="mt-4 md:mt-6 px-2 md:px-4 pb-1 md:pb-2">
+                <a
+                  href="#"
+                  className="block w-full text-center py-2.5 md:py-3 bg-white text-black font-semibold text-sm md:text-base rounded-full hover:bg-gray-200 transition-colors"
+                >
+                  {language === 'JP' ? '購入ページ' : 'Purchase'}
+                </a>
+              </div>
+            </div>
           ))}
         </div>
 
