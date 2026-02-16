@@ -33,6 +33,11 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# scraper credentials & artifacts
+service-account-key.json
+error-screenshot.png
+scraper/node_modules
+
 # vercel
 .vercel
 
