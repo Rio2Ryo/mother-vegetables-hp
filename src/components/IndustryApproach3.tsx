@@ -230,24 +230,18 @@ Explain the potential benefits of a food with these characteristics:
       ? 'そこで、Mother Vegetable Achieve/Foreverについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押すと全成分がコピーされますので、ChatGPTやGeminiなどのAIに入力し、「この成分を飲むとどのような効果効能があるか」についてご自身でお調べください。'
       : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Achieve/Forever. Clicking the "Copy to Clipboard" button below will copy all ingredients. Please paste them into an AI service such as ChatGPT or Gemini to research the potential effects and benefits of consuming these ingredients.',
     featuresTitle: language === 'JP' ? '我々の特性について' : 'Our Characteristics',
-    features: language === 'JP' ? [
-      '植物や藻の始祖にあたるMother Vegetable由来の天然素材のみを使用',
-      'Mother Vegetableは固い外核や細胞壁を持たない',
-      '完全室内培養（Closed Bioreactor System）',
-      '重金属・マイクロプラスチック汚染リスクを極限まで排除',
-      '虫・鳥類・外来微生物などの混入が起こらない培養環境',
-      '農薬・化学肥料 不使用',
-      '食品添加物 不使用',
-      '保存料・人工着色料・香料 不使用',
+    featuresTable: language === 'JP' ? [
+      ['植物や藻の始祖に当たるMother Vegetableのみを使用した完全天然素材/天然栄養素', '飲むタイプのMother Vegetableは、固い外核/細胞壁を持たない構造'],
+      ['PM2.5などの外気や虫・鳥類などの混入が起こらない完全室内培養', '重金属・マイクロプラスチック汚染リスクを極限まで排除'],
+      ['食品添加物 不使用', '農薬・化学肥料 不使用'],
+      ['保存料・人工着色料・香料 不使用', '世界ドーピング防止機構（WADA）の定める違法成分無し'],
+      ['動物や植物への栄養にも使用可能', '災害用備蓄品などの長期保存にも'],
     ] : [
-      'Uses only natural materials derived from Mother Vegetable, the ancestor of plants and algae',
-      'Mother Vegetable has no hard outer shell or cell walls',
-      'Complete indoor cultivation (Closed Bioreactor System)',
-      'Minimizes heavy metal and microplastic contamination risks',
-      'Cultivation environment free from insects, birds, and foreign microorganisms',
-      'No pesticides or chemical fertilizers',
-      'No food additives',
-      'No preservatives, artificial colors, or fragrances',
+      ['Made entirely from natural materials/nutrients derived solely from Mother Vegetable, the ancestor of plants and algae', 'Drinkable Mother Vegetable has no hard outer shell or cell wall structure'],
+      ['Complete indoor cultivation free from PM2.5, insects, birds, and other contaminants', 'Minimizes heavy metal and microplastic contamination risks'],
+      ['No food additives', 'No pesticides or chemical fertilizers'],
+      ['No preservatives, artificial colors, or fragrances', 'No prohibited substances as defined by WADA (World Anti-Doping Agency)'],
+      ['Can also be used as nutrition for animals and plants', 'Suitable for long-term storage as emergency disaster supplies'],
     ],
     featuresNote: language === 'JP'
       ? '（多くお問い合わせいただく、腸内機能/睡眠/便/運動機能/二日酔い/疲労等についての効果は各自AIにてお調べください。）'
@@ -487,14 +481,18 @@ Explain the potential benefits of a food with these characteristics:
               {texts.featuresTitle}
             </h4>
 
-            {/* Features List */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-              {texts.features.map((feature, index) => (
-                <div key={index} className="flex items-start gap-2">
-                  <span className="text-green-400 mt-0.5">・</span>
-                  <span className="text-gray-300 text-xs md:text-sm">{feature}</span>
-                </div>
-              ))}
+            {/* Features Table */}
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[500px] border-collapse" style={{ borderColor: '#25c760' }}>
+                <tbody>
+                  {texts.featuresTable.map((row, index) => (
+                    <tr key={index}>
+                      <td className="border border-green-500 px-4 py-3 text-gray-200 text-xs md:text-sm w-1/2">{row[0]}</td>
+                      <td className="border border-green-500 px-4 py-3 text-gray-200 text-xs md:text-sm w-1/2">{row[1]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

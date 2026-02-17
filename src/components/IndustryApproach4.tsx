@@ -190,11 +190,11 @@ export default function IndustryApproach() {
 
   // 成分表示（化粧品用）
   const cosmeticNutrients = [
-    { name: '水分', amount: '0.1g', nameEN: 'Moisture' },
-    { name: 'たんぱく質', amount: '2.4~2.6g', nameEN: 'Protein' },
-    { name: '脂質', amount: '0.1g未満', nameEN: 'Fat' },
-    { name: '炭水化物（食物繊維）', amount: '0.3~0.5g', nameEN: 'Carbohydrates (Dietary Fiber)' },
     { name: '無水ケイ酸', amount: '97.1g', nameEN: 'Anhydrous Silica' },
+    { name: 'たんぱく質', amount: '2.4~2.6g', nameEN: 'Protein' },
+    { name: '炭水化物（食物繊維）', amount: '0.3~0.5g', nameEN: 'Carbohydrates (Dietary Fiber)' },
+    { name: '脂質', amount: '0.1g未満', nameEN: 'Fat' },
+    { name: '水分', amount: '0.1g', nameEN: 'Moisture' },
   ]
 
   // コピー状態
@@ -315,6 +315,20 @@ Explain the potential benefits of a skincare product with these characteristics:
     featuresNote: language === 'JP'
       ? '（多くお問い合わせいただく、保湿、皮脂汚れ、アレルギー肌、デリケートゾーン等のニオイ、化粧下地への応用などについての効果は各自AIにてお調べください。）'
       : '(We receive many inquiries about effects on moisturizing, sebum/dirt removal, allergy-prone skin, odor in delicate areas, use as a makeup base, etc. Please research individually using AI.)',
+    featuresTitle: language === 'JP' ? '我々の特性について' : 'Our Characteristics',
+    featuresTable: language === 'JP' ? [
+      ['植物や藻の始祖に当たるMother Vegetableのみを使用した完全天然素材/天然栄養素', '塗るタイプのMother Vegetableは、主成分が非晶質の無水ケイ酸'],
+      ['PM2.5などの外気や虫・鳥類などの混入が起こらない完全室内培養', '重金属・マイクロプラスチック汚染リスクを極限まで排除'],
+      ['保存料・人工着色料・香料 不使用', '無水ケイ酸を「抽出」する作業がなく、Mother Vegetableを乾燥させたのみの天然'],
+      ['農薬・化学肥料 不使用', '医薬部外品原料規格をクリア'],
+      ['動物や植物への使用が可能', '長期保存が可能'],
+    ] : [
+      ['Made entirely from natural materials/nutrients derived solely from Mother Vegetable, the ancestor of plants and algae', 'The main component of topical Mother Vegetable is amorphous anhydrous silica'],
+      ['Complete indoor cultivation free from PM2.5, insects, birds, and other contaminants', 'Minimizes heavy metal and microplastic contamination risks'],
+      ['No preservatives, artificial colors, or fragrances', 'No extraction process for anhydrous silica — simply dried Mother Vegetable in its natural form'],
+      ['No pesticides or chemical fertilizers', 'Meets quasi-drug raw material standards'],
+      ['Can be used on animals and plants', 'Suitable for long-term storage'],
+    ],
   }
 
   // categories/benefits配列は削除済み（効能断定を避けるため）
@@ -471,6 +485,30 @@ Explain the potential benefits of a skincare product with these characteristics:
           <p className="text-gray-400 text-xs md:text-sm text-center italic mb-12">
             {cosmeticTexts.featuresNote}
           </p>
+
+          {/* Features Section */}
+          <div className="mt-8 md:mt-12">
+            <h4
+              className="text-base md:text-2xl font-bold text-center mb-6"
+              style={{ color: '#25c760' }}
+            >
+              {cosmeticTexts.featuresTitle}
+            </h4>
+
+            {/* Features Table */}
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[500px] border-collapse">
+                <tbody>
+                  {cosmeticTexts.featuresTable.map((row, index) => (
+                    <tr key={index}>
+                      <td className="border border-green-500 px-4 py-3 text-gray-200 text-xs md:text-sm w-1/2">{row[0]}</td>
+                      <td className="border border-green-500 px-4 py-3 text-gray-200 text-xs md:text-sm w-1/2">{row[1]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
 
         {/* Popup Modal - Hidden */}
