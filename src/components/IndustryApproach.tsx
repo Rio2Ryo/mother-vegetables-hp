@@ -119,7 +119,6 @@ export default function IndustryApproach() {
 
                   {/* Label & Description */}
                   <p className="text-red-600 font-semibold text-xs md:text-sm md:text-center">{product.label}</p>
-                  <p className="text-white text-[10px] md:text-sm mb-2 md:text-center">{product.description}</p>
 
                   {/* Features */}
                   <div className="space-y-1 mb-2 mt-5">
