@@ -12,15 +12,16 @@ export default function IndustryApproach() {
       title: 'Achieve',
       subtitle: 'for Body',
       label: "'TORIKOMU'",
-      description: language === 'JP' ? '一度に48種類の栄養摂取' : '48 different nutrients at once.',
       features: language === 'JP' ? [
-        '48種類の栄養素を一度に摂取',
-        '毎日の健康維持をサポート',
+        '48種類の栄養を一度に摂取',
+        '毎日の健康を大切な人と',
       ] : [
         '48 different nutrients in one serving',
-        'Supports your daily wellness routine',
+        'Share daily wellness with your loved ones',
       ],
       howToUse: language === 'JP' ? "1スティックを飲み物や食事に'TORIKOMU'" : "Simply 'TORIKOMU' one capsule into your drink or meal.",
+      howToUseLabel: language === 'JP' ? 'Achiveの料理/ドリンク一覧' : 'Achieve Recipes & Drinks',
+      howToUseUrl: 'https://mothervegetable.com/achieve-howto',
     },
     {
       id: 2,
@@ -28,15 +29,16 @@ export default function IndustryApproach() {
       title: 'Confidence',
       subtitle: 'for All Skin',
       label: "'SURIKOMU' , 'MAZEKOMU'",
-      description: language === 'JP' ? '天然由来成分でスキンケア' : 'Natural-derived skincare',
       features: language === 'JP' ? [
-        '天然由来の成分を配合',
-        'スキンケアにプラスワン',
+        '肌の気になるところに直接塗布',
+        'お気に入りコスメに混ぜて使用',
       ] : [
-        'Contains natural-derived ingredients',
-        'Add to your skincare routine',
+        'Apply directly to areas of skin concern',
+        'Mix into your favorite cosmetics',
       ],
       howToUse: language === 'JP' ? "直接 'SURIKOMU' または コスメに 'MAZEKOMU'" : "'SURIKOMU' directly or 'MAZEKOMU' into your current cosmetics.",
+      howToUseLabel: language === 'JP' ? 'Confidenceの混ぜ方/使い方一覧' : 'Confidence Mixing & Usage Guide',
+      howToUseUrl: 'https://mothervegetable.com/confidence-howto',
     },
     {
       id: 3,
@@ -44,15 +46,16 @@ export default function IndustryApproach() {
       title: 'Forever',
       subtitle: 'for Pet',
       label: "'MAZEKOMU'",
-      description: language === 'JP' ? 'ペットの健康寿命を延ばす' : "to extend your pet's healthy life.",
       features: language === 'JP' ? [
-        'ペットの毎日の健康をサポート',
-        '天然由来の栄養成分を配合',
+        'フードに混ぜて栄養48種を摂取',
+        '大切なペットと永く健康に',
       ] : [
-        'Supports your pet\'s daily wellness',
-        'Contains natural-derived nutrients',
+        'Mix into food for 48 essential nutrients',
+        'Live a long, healthy life with your beloved pet',
       ],
       howToUse: language === 'JP' ? "ペットフードに1スティックを'MAZEKOMU'" : "Simply 'MAZEKOMU' one capsule into your pet's food.",
+      howToUseLabel: language === 'JP' ? 'Foreverのペット種類別与え方一覧' : 'Forever Feeding Guide by Pet Type',
+      howToUseUrl: 'https://mothervegetable.com/forever-howto',
     },
   ]
 
@@ -129,12 +132,13 @@ export default function IndustryApproach() {
                   </div>
 
                   {/* How to use */}
-                  <div className="mb-2 md:mt-10 md:mb-4">
-                    <p className="text-green-400 font-semibold text-xs md:text-xl mb-1">How to use</p>
-                    <p className="text-white text-[10px] md:text-sm flex items-start">
-                      <span className="text-green-400 mr-1 md:mr-2">✓</span>
-                      {product.howToUse}
-                    </p>
+                  <div className="mb-2 md:mt-6 md:mb-2">
+                    <a
+                      href={product.howToUseUrl || '#'}
+                      className="text-green-400 font-semibold text-xs md:text-xl mb-1 hover:underline block"
+                    >
+                      {product.howToUseLabel}
+                    </a>
                   </div>
 
                 </div>
@@ -166,4 +170,3 @@ export default function IndustryApproach() {
     </section>
   )
 }
-

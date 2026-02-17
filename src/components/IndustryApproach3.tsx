@@ -12,13 +12,13 @@ export default function IndustryApproach() {
     { name: 'ビタミン', count: '10種類' },
     { name: 'アミノ酸', count: '18種類' },
     { name: '脂肪酸', count: '3種類' },
-    { name: 'その他機能性成分', nameMobile: ['その他機能性', '成分'], count: '9種類' },
+    { name: '天然色素などその他', nameMobile: ['天然色素など', 'その他'], count: '8種類' },
   ] : [
     { name: 'Essential Fatty Acids', nameMobile: ['Essential Fatty', 'Acids'], count: '9 types' },
     { name: 'Amino Acids', count: '10 types' },
     { name: 'Vital Vitamins', count: '18 types' },
     { name: 'Key Minerals For Balance', nameMobile: ['Key Minerals For', 'Balance'], count: '3 types' },
-    { name: 'Other Functional Ingredients', nameMobile: ['Other Functional', 'Ingredients'], count: '9 types' },
+    { name: 'Natural Pigments & Others', nameMobile: ['Natural Pigments', '& Others'], count: '8 types' },
   ]
 
   // 主要項目（5大栄養素 - 強調表示）
@@ -273,11 +273,17 @@ Explain the potential benefits of a food with these characteristics:
       >
         {/* Title */}
         <h2
-          className="text-xl md:text-5xl font-bold text-center mb-2 md:mb-4"
+          className="text-xl md:text-5xl font-bold text-center mb-1 md:mb-2"
           style={{ color: '#25c760' }}
         >
           Food Function
         </h2>
+        <p
+          className="text-sm md:text-2xl text-center mb-2 md:mb-4"
+          style={{ color: '#25c760' }}
+        >
+          {language === 'JP' ? '飲むタイプのMother Vegetable' : 'Drinkable Mother Vegetable'}
+        </p>
 
         {/* Subtitle */}
         <p className="text-center text-white text-base md:text-xl mb-4">
@@ -319,39 +325,33 @@ Explain the potential benefits of a food with these characteristics:
             {nutrients.map((nutrient, index) => (
               <div
                 key={index}
-                className="w-[18%] aspect-square md:w-32 md:h-32 rounded-full flex flex-col items-center justify-center text-center"
-                style={{ backgroundColor: '#4a9d7c' }}
+                className="w-[18%] aspect-square md:aspect-auto md:w-32 md:h-32 rounded-full overflow-hidden"
+                style={{ backgroundColor: '#4a9d7c', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
               >
-                {nutrient.nameMobile ? (
-                  <>
-                    {/* Mobile: 3 lines */}
-                    <span className="text-white text-[5px] font-medium leading-tight md:hidden">
-                      {nutrient.nameMobile[0]}
-                    </span>
-                    <span className="text-white text-[5px] font-medium leading-tight md:hidden">
-                      {nutrient.nameMobile[1]}
-                    </span>
-                    <span className="text-white text-[5px] md:hidden">
-                      {nutrient.count}
-                    </span>
-                    {/* Desktop: 2 lines */}
-                    <span className="text-white text-base font-medium leading-tight hidden md:block">
-                      {nutrient.name}
-                    </span>
-                    <span className="text-white text-base hidden md:block">
-                      {nutrient.count}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <span className="text-white text-[5px] md:text-base font-medium leading-tight">
-                      {nutrient.name}
-                    </span>
-                    <span className="text-white text-[5px] md:text-base">
-                      {nutrient.count}
-                    </span>
-                  </>
-                )}
+                <div className="text-center" style={{ lineHeight: 1.3, paddingTop: '7px' }}>
+                  {nutrient.nameMobile ? (
+                    <>
+                      <div className="text-white text-[5px] md:text-base font-medium">
+                        {nutrient.nameMobile[0]}
+                      </div>
+                      <div className="text-white text-[5px] md:text-base font-medium">
+                        {nutrient.nameMobile[1]}
+                      </div>
+                      <div className="text-white text-[5px] md:text-base">
+                        {nutrient.count}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-white text-[5px] md:text-base font-medium">
+                        {nutrient.name}
+                      </div>
+                      <div className="text-white text-[5px] md:text-base">
+                        {nutrient.count}
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
             ))}
           </div>
