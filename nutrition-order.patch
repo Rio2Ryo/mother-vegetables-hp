@@ -76,7 +76,7 @@ index adb6f85..35d3a4e 100644
 +    { name: '炭水化物', amount: '20g', nameEN: 'Carbohydrates' },
 +
 +    // col 4
-+    { name: '糖質', amount: '8g', nameEN: 'Sugar' },
++    { name: '糖質(3種)', amount: '8g', nameEN: 'Sugars (3 types)' },
 +    { name: '食物繊維', amount: '12g', nameEN: 'Dietary Fiber' },
 +    { name: 'ミネラル', amount: '8g', nameEN: 'Minerals' },
 +    { name: '食塩相当量（推定値）', amount: '1,050mg', nameEN: 'Salt Equivalent (estimated)' },

@@ -62,7 +62,7 @@ export default function IndustryApproach() {
     { name: 'オメガ3脂肪酸（α-リノレン酸含む）', amount: '約100mg', nameEN: 'Omega-3 Fatty Acids (incl. ALA)' },
     { name: 'オメガ6脂肪酸（γ-リノレン酸含む）', amount: '約1.5g', nameEN: 'Omega-6 Fatty Acids (incl. GLA)' },
     // 炭水化物の内訳
-    { name: '糖質', amount: '8g', nameEN: 'Sugar' },
+    { name: '糖質(3種)', amount: '8g', nameEN: 'Sugars (3 types)' },
     { name: '食物繊維', amount: '12g', nameEN: 'Dietary Fiber' },
     // ミネラルの内訳
     { name: '食塩相当量（推定値）', amount: '1,050mg', nameEN: 'Salt Equivalent (estimated)' },
@@ -224,14 +224,11 @@ Explain the potential benefits of a food with these characteristics:
   const texts = {
     effectsTitle: language === 'JP' ? '効果効能について' : 'About Effects & Benefits',
     effectsDescription1: language === 'JP'
-      ? '我々Mother Vegetableグループは世界各地で活動を行っているため、効果効能に関する表現についても各国の法律・ガイドラインを遵守します。'
+      ? '私たちMother Vegetableグループは、世界各地で活動を行っているため、効果効能に関する表現についても各国の法律・ガイドラインを遵守します。'
       : 'The Mother Vegetable Group operates worldwide, and we comply with the laws and guidelines of each country regarding the expression of effects and benefits.',
-    effectsDescription2: language === 'JP'
-      ? '私たちは地球と生命の未来基準を創る存在として、表現においても世界基準の責任を担うパイオニアであり続けます。'
-      : 'As pioneers creating future standards for Earth and life, we continue to bear the responsibility of global standards in our expressions.',
     effectsDescription3: language === 'JP'
-      ? 'そこで、Mother Vegetable Achieveについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押して内容をコピーし、ChatGPTやGeminiなどのAIに、この成分を飲むとどのようになるかについて各自お調べください。'
-      : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Achieve. Please click the "Copy to Clipboard" button below, and use AI services like ChatGPT or Gemini to research what happens when you consume these ingredients.',
+      ? 'そこで、Mother Vegetable Achieve/Foreverについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押すと全成分がコピーされますので、ChatGPTやGeminiなどのAIに入力し、「この成分を飲むとどのような効果効能があるか」についてご自身でお調べください。'
+      : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Achieve/Forever. Clicking the "Copy to Clipboard" button below will copy all ingredients. Please paste them into an AI service such as ChatGPT or Gemini to research the potential effects and benefits of consuming these ingredients.',
     featuresTitle: language === 'JP' ? '我々の特性について' : 'Our Characteristics',
     features: language === 'JP' ? [
       '植物や藻の始祖にあたるMother Vegetable由来の天然素材のみを使用',
@@ -253,9 +250,9 @@ Explain the potential benefits of a food with these characteristics:
       'No preservatives, artificial colors, or fragrances',
     ],
     featuresNote: language === 'JP'
-      ? '（腸内機能/睡眠/便/運動機能/二日酔い/疲労等についての効果は各自AIにてお調べください）'
-      : '(Please use AI to research the effects on intestinal function, sleep, bowel movements, exercise performance, hangovers, fatigue, etc.)',
-    copyButton: language === 'JP' ? 'クリップボードにコピー' : 'Copy to clipboard',
+      ? '（多くお問い合わせいただく、腸内機能/睡眠/便/運動機能/二日酔い/疲労等についての効果は各自AIにてお調べください。）'
+      : '(For frequently asked questions about gut health, sleep, bowel movements, exercise performance, hangovers, fatigue, etc., please research using AI.)',
+    copyButton: language === 'JP' ? '[上記成分をクリップボードにコピー]' : 'Copy Ingredients to Clipboard',
     copiedMessage: language === 'JP' 
       ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 
       : '✅ Copied! Open an AI service and paste.',
@@ -426,7 +423,6 @@ Explain the potential benefits of a food with these characteristics:
           {/* Description Paragraphs - センター揃えの左寄せ */}
           <div className="text-gray-300 text-sm md:text-base text-left leading-relaxed mb-8 md:mb-10 space-y-4 max-w-3xl mx-auto">
             <p>{texts.effectsDescription1}</p>
-            <p>{texts.effectsDescription2}</p>
             <p>{texts.effectsDescription3}</p>
           </div>
 

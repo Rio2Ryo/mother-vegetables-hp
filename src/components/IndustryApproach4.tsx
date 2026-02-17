@@ -303,21 +303,18 @@ Explain the potential benefits of a skincare product with these characteristics:
   const cosmeticTexts = {
     effectsTitle: language === 'JP' ? '効果効能について' : 'About Effects & Benefits',
     effectsDescription1: language === 'JP'
-      ? '我々Mother Vegetableグループは世界各地で活動を行っているため、効果効能に関する表現についても各国の法律・ガイドラインを遵守します。'
+      ? '私たちMother Vegetableグループは、世界各地で活動を行っているため、効果効能に関する表現についても各国の法律・ガイドラインを遵守します。'
       : 'The Mother Vegetable Group operates worldwide, and we comply with the laws and guidelines of each country regarding the expression of effects and benefits.',
-    effectsDescription2: language === 'JP'
-      ? '私たちは地球と生命の未来基準を創る存在として、表現においても世界基準の責任を担うパイオニアであり続けます。'
-      : 'As pioneers creating future standards for Earth and life, we continue to bear the responsibility of global standards in our expressions.',
     effectsDescription3: language === 'JP'
-      ? 'そこで、Mother Vegetable Confidenceについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押して内容をコピーし、ChatGPTやGeminiなどのAIに、この成分を肌に使うとどのようになるかについて各自お調べください。'
-      : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Confidence. Please click the "Copy to Clipboard" button below, and use AI services like ChatGPT or Gemini to research what happens when you apply these ingredients to your skin.',
-    copyButton: language === 'JP' ? 'クリップボードにコピー' : 'Copy to clipboard',
+      ? 'そこで、Mother Vegetable Achieve/Foreverについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押すと全成分がコピーされますので、ChatGPTやGeminiなどのAIに入力し、「この成分を飲むとどのような効果効能があるか」についてご自身でお調べください。'
+      : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Achieve/Forever. Clicking the "Copy to Clipboard" button below will copy all ingredients. Please paste them into an AI service such as ChatGPT or Gemini to research the potential effects and benefits of consuming these ingredients.',
+    copyButton: language === 'JP' ? '[上記成分をクリップボードにコピー]' : 'Copy Ingredients to Clipboard',
     copiedMessage: language === 'JP' 
       ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 
       : '✅ Copied! Open an AI service and paste.',
     featuresNote: language === 'JP'
-      ? '（保湿/バリア機能/肌荒れ/皮脂・テカり/くすみ等についての効果は各自AIにてお調べください）'
-      : '(Please use AI to research the effects on moisturizing, barrier function, skin irritation, sebum, dullness, etc.)',
+      ? '（多くお問い合わせいただく、保湿、皮脂汚れ、アレルギー肌、デリケートゾーン等のニオイ、化粧下地への応用などについての効果は各自AIにてお調べください。）'
+      : '(We receive many inquiries about effects on moisturizing, sebum/dirt removal, allergy-prone skin, odor in delicate areas, use as a makeup base, etc. Please research individually using AI.)',
   }
 
   // categories/benefits配列は削除済み（効能断定を避けるため）
@@ -334,11 +331,17 @@ Explain the potential benefits of a skincare product with these characteristics:
       >
         {/* Title */}
         <h2
-          className="text-xl md:text-5xl font-bold text-center mb-2 md:mb-4"
+          className="text-xl md:text-5xl font-bold text-center mb-1 md:mb-2"
           style={{ color: '#25c760' }}
         >
          Cosmetic Function
         </h2>
+        <p
+          className="text-sm md:text-2xl text-center mb-2 md:mb-4"
+          style={{ color: '#25c760' }}
+        >
+          {language === 'JP' ? '肌に塗るタイプのMother Vegetable' : 'Mother Vegetable for Skin Application'}
+        </p>
 
         {/* Subtitle */}
         <p className="text-center text-white text-base md:text-xl mb-4">
@@ -414,7 +417,6 @@ Explain the potential benefits of a skincare product with these characteristics:
           {/* Description Paragraphs */}
           <div className="text-gray-300 text-sm md:text-base text-left leading-relaxed mb-8 md:mb-10 space-y-4 max-w-3xl mx-auto">
             <p>{cosmeticTexts.effectsDescription1}</p>
-            <p>{cosmeticTexts.effectsDescription2}</p>
             <p>{cosmeticTexts.effectsDescription3}</p>
           </div>
 
