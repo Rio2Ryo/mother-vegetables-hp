@@ -311,8 +311,8 @@ Explain the potential benefits of a food with these characteristics:
 
         {/* Nutrient Section Container */}
         <div className="max-w-3xl mx-auto px-0 md:px-4">
-          {/* Nutrient Circles */}
-          <div className="flex justify-between items-center gap-1 md:gap-0 mb-8 md:mb-12">
+          {/* Nutrient Circles - Hidden */}
+          <div className="hidden flex justify-between items-center gap-1 md:gap-0 mb-8 md:mb-12">
             {nutrients.map((nutrient, index) => (
               <div
                 key={index}

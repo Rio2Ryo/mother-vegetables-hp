@@ -107,20 +107,20 @@ export default function ProjectOverview() {
 
                   <p className="text-gray-300 leading-[1.9] whitespace-pre-line mb-4 text-sm md:text-base">
                     {t({
-                      JP: `地球最初の植物であるマザーベジタブルが人類に至った進化を研究し以下の3種類のマザーベジタブルを提供します。`,
-                      EN: `By researching the evolutionary journey of Mother Vegetable, Earth's first vegetable, which culminated in humanity,
-we offer the following three types of Mother Vegetable products:`
+                      JP: `地球最初の植物であるマザーベジタブルが人類に至るまでの進化を研究。以下の3種類のマザーベジタブルを提供しています。`,
+                      EN: `Researching the evolution of Mother Vegetable, Earth's first plant, leading up to humanity. We offer the following three types of Mother Vegetable products.`
                     })}
                   </p>
 
                   <div className="space-y-2">
-                    <p className="text-green-400 font-semibold text-sm md:text-base">{t({ JP: '①食品', EN: '①Food' })}</p>
-                    <p className="text-white text-sm md:text-base">{t({ JP: '1つの生命体から人類に必要な48種類の栄養素を含む食品。', EN: 'Food derived from a single life form that provides all 48 nutrients essential for humanity.' })}</p>
+                    <p className="text-green-400 font-semibold text-sm md:text-base">{t({ JP: '① 食品：', EN: '① Food:' })}</p>
+                    <p className="text-white text-sm md:text-base">{t({ JP: '人類に必要な48種類の栄養素を含む飲用タイプ。', EN: 'A drinkable type containing 48 nutrients essential for humanity.' })}</p>
 
-                    <p className="text-green-400 font-semibold text-sm md:text-base">{t({ JP: '②スキンケア', EN: '②Skincare' })}</p>
-                    <p className="text-white text-sm md:text-base">{t({ JP: '皮膚の再生に効果のあるスキンケア。', EN: 'Skincare products designed to promote reverse aging effects for the skin.' })}</p>
+                    <p className="text-green-400 font-semibold text-sm md:text-base">{t({ JP: '② スキンケア：', EN: '② Skincare:' })}</p>
+                    <p className="text-white text-sm md:text-base">{t({ JP: '肌を整えるスキンケアタイプ', EN: 'A skincare type that conditions the skin.' })}</p>
 
-                  
+                    <p className="text-green-400 font-semibold text-sm md:text-base">{t({ JP: '③ 魚貝類の養殖：', EN: '③ Aquaculture of Fish and Shellfish:' })}</p>
+                    <p className="text-white text-sm md:text-base">{t({ JP: '化学物質が一切なく、魚貝類の養殖に使用する高タンパク質の飼料タイプ。', EN: 'A high-protein feed type, completely free of chemicals, used for aquaculture of fish and shellfish.' })}</p>
                   </div>
                 </div>
 
@@ -223,21 +223,21 @@ we offer the following three types of Mother Vegetable products:`
                   </div>
 
                   <div className="space-y-2">
-                    <p className="text-green-400 font-semibold text-sm md:text-base">①CO<sub>2</sub> offset</p>
+                    <p className="text-green-400 font-semibold text-sm md:text-base">① CO<sub>2</sub> offset:</p>
                     <p className="text-white mb-3 text-sm md:text-base">
                       {language === 'JP' ? (
-                        <>マザーベジタブル生産によるCO<sub>2</sub>の吸収（天然スギの700倍）およびO<sub>2</sub>の排出により小さな地球を再現。</>
+                        <>マザーベジタブル生産の過程でCO<sub>2</sub>を吸収し（天然スギの700倍）、O<sub>2</sub>の排出をする、「小さな地球」を再現。</>
                       ) : (
-                        <>Recreating a small Earth through CO<sub>2</sub> absorption (700 times that of natural cedar) and O<sub>2</sub> emission by Mother Vegetable production.</>
+                        <>Absorbing CO<sub>2</sub> (700 times that of natural cedar) and emitting O<sub>2</sub> in the process of Mother Vegetable production, recreating a &quot;Small Earth.&quot;</>
                       )}
                     </p>
 
-                    <p className="text-green-400 font-semibold text-sm md:text-base">{t({ JP: '②ZERO Emission', EN: '②ZERO Emission' })}</p>
+                    <p className="text-green-400 font-semibold text-sm md:text-base">② ZERO Emission:</p>
                     <p className="text-white mb-3 text-sm md:text-base">
                       {language === 'JP' ? (
-                        <>外部電力、化石燃料などCO<sub>2</sub>を排出するエネルギーを一切使用しなく、小さな地球を再現。</>
+                        <>外部電力、化石燃料などCO<sub>2</sub>を排出するエネルギーを一切使用せず稼働が可能。</>
                       ) : (
-                        <>Recreating a small Earth without relying on any CO<sub>2</sub>-emitting energy sources, including external electricity or fossil fuels.</>
+                        <>Capable of operating without using any CO<sub>2</sub>-emitting energy sources, including external electricity or fossil fuels.</>
                       )}
                     </p>
 
