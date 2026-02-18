@@ -447,6 +447,26 @@ Explain the expected effects from this ingredient group in the following areas:
           </div>
         </div>
 
+        {/* Features Section - Confidence Characteristics */}
+        <div className="max-w-4xl mx-auto px-4 md:px-4 mt-12 md:mt-16">
+          <h4
+            className="text-base md:text-2xl font-bold text-center mb-6"
+            style={{ color: '#25c760' }}
+          >
+            {cosmeticTexts.featuresTitle}
+          </h4>
+
+          {/* Features List */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5 md:gap-y-6">
+            {cosmeticTexts.featuresTable.flat().map((item, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <span className="mt-2 w-1.5 h-1.5 min-w-[6px] rounded-full bg-[#25c760]"></span>
+                <span className="text-gray-200 text-xs md:text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Effects & Benefits Section (Cosmetic) */}
         <div className="max-w-4xl mx-auto px-4 md:px-4 mt-12 md:mt-16">
           {/* Effects Title */}
@@ -511,29 +531,9 @@ Explain the expected effects from this ingredient group in the following areas:
           </div>
 
           {/* AI Research Note */}
-          <p className="text-gray-400 text-xs md:text-sm text-center italic mb-12">
+          <p className="text-gray-400 text-xs md:text-sm text-center italic">
             {cosmeticTexts.featuresNote}
           </p>
-
-          {/* Features Section */}
-          <div className="mt-8 md:mt-12">
-            <h4
-              className="text-base md:text-2xl font-bold text-center mb-6"
-              style={{ color: '#25c760' }}
-            >
-              {cosmeticTexts.featuresTitle}
-            </h4>
-
-            {/* Features List */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5 md:gap-y-6">
-              {cosmeticTexts.featuresTable.flat().map((item, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <span className="mt-2 w-1.5 h-1.5 min-w-[6px] rounded-full bg-[#25c760]"></span>
-                  <span className="text-gray-200 text-xs md:text-sm">{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Popup Modal - Hidden */}
