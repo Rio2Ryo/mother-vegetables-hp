@@ -308,7 +308,7 @@ Explain the potential benefits of a skincare product with these characteristics:
     effectsDescription3: language === 'JP'
       ? 'そこで、Mother Vegetable Achieve/Foreverについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押すと全成分がコピーされますので、ChatGPTやGeminiなどのAIに入力し、「この成分を飲むとどのような効果効能があるか」についてご自身でお調べください。'
       : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Achieve/Forever. Clicking the "Copy to Clipboard" button below will copy all ingredients. Please paste them into an AI service such as ChatGPT or Gemini to research the potential effects and benefits of consuming these ingredients.',
-    copyButton: language === 'JP' ? '[上記成分をクリップボードにコピー]' : 'Copy Ingredients to Clipboard',
+    copyButton: language === 'JP' ? '上記成分をクリップボードにコピー' : 'Copy Ingredients to Clipboard',
     copiedMessage: language === 'JP' 
       ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 
       : '✅ Copied! Open an AI service and paste.',
@@ -339,20 +339,20 @@ Explain the potential benefits of a skincare product with these characteristics:
         className="mx-auto px-4 md:px-8 py-8 md:py-12 w-[97%] md:w-[90%]"
         style={{
           maxWidth: '1500px',
-          border: '2px solid #25c760',
+          border: '2px solid #ffffff',
           borderRadius: '8px',
         }}
       >
         {/* Title */}
         <h2
           className="text-xl md:text-5xl font-bold text-center mb-1 md:mb-2"
-          style={{ color: '#25c760' }}
+          style={{ color: '#ffffff' }}
         >
          Cosmetic Function
         </h2>
         <p
           className="text-sm md:text-2xl text-center mb-2 md:mb-4"
-          style={{ color: '#25c760' }}
+          style={{ color: '#ffffff' }}
         >
           {language === 'JP' ? '肌に塗るタイプのMother Vegetable' : 'Mother Vegetable for Skin Application'}
         </p>
@@ -395,7 +395,7 @@ Explain the potential benefits of a skincare product with these characteristics:
           {/* 成分表示 */}
           <h3
             className="text-lg md:text-3xl font-bold text-center mb-4 md:mb-6"
-            style={{ color: '#25c760' }}
+            style={{ color: '#ffffff' }}
           >
             {language === 'JP' ? '成分表示（100g当たり）' : 'Ingredient Information (per 100g)'}
           </h3>
@@ -423,7 +423,7 @@ Explain the potential benefits of a skincare product with these characteristics:
           {/* Effects Title */}
           <h3
             className="text-lg md:text-3xl font-bold text-center mb-6 md:mb-8"
-            style={{ color: '#25c760' }}
+            style={{ color: '#ffffff' }}
           >
             {cosmeticTexts.effectsTitle}
           </h3>
@@ -438,8 +438,8 @@ Explain the potential benefits of a skincare product with these characteristics:
           <div className="flex flex-col items-center gap-4 mb-8">
             <button
               onClick={handleCopy}
-              className="group flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 rounded-2xl font-bold text-base md:text-lg transition-all duration-300 hover:scale-105 border-2 border-[#25c760] bg-transparent hover:bg-[#25c760]/10 whitespace-nowrap"
-              style={{ color: '#25c760' }}
+              className="group flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 rounded-2xl font-bold text-base md:text-lg transition-all duration-300 hover:scale-105 border-2 border-white bg-transparent hover:bg-white/10 whitespace-nowrap"
+              style={{ color: '#ffffff' }}
             >
               {/* Clipboard Icon */}
               <svg 
@@ -490,23 +490,19 @@ Explain the potential benefits of a skincare product with these characteristics:
           <div className="mt-8 md:mt-12">
             <h4
               className="text-base md:text-2xl font-bold text-center mb-6"
-              style={{ color: '#25c760' }}
+              style={{ color: '#ffffff' }}
             >
               {cosmeticTexts.featuresTitle}
             </h4>
 
-            {/* Features Table */}
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[500px] border-collapse">
-                <tbody>
-                  {cosmeticTexts.featuresTable.map((row, index) => (
-                    <tr key={index}>
-                      <td className="border border-green-500 px-4 py-3 text-gray-200 text-xs md:text-sm w-1/2">{row[0]}</td>
-                      <td className="border border-green-500 px-4 py-3 text-gray-200 text-xs md:text-sm w-1/2">{row[1]}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            {/* Features List */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5 md:gap-y-6">
+              {cosmeticTexts.featuresTable.flat().map((item, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <span className="mt-2 w-1.5 h-1.5 min-w-[6px] rounded-full bg-white"></span>
+                  <span className="text-gray-200 text-xs md:text-sm">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

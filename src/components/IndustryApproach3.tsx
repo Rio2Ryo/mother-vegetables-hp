@@ -246,7 +246,7 @@ Explain the potential benefits of a food with these characteristics:
     featuresNote: language === 'JP'
       ? '（多くお問い合わせいただく、腸内機能/睡眠/便/運動機能/二日酔い/疲労等についての効果は各自AIにてお調べください。）'
       : '(For frequently asked questions about gut health, sleep, bowel movements, exercise performance, hangovers, fatigue, etc., please research using AI.)',
-    copyButton: language === 'JP' ? '[上記成分をクリップボードにコピー]' : 'Copy Ingredients to Clipboard',
+    copyButton: language === 'JP' ? '上記成分をクリップボードにコピー' : 'Copy Ingredients to Clipboard',
     copiedMessage: language === 'JP' 
       ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 
       : '✅ Copied! Open an AI service and paste.',
@@ -481,18 +481,14 @@ Explain the potential benefits of a food with these characteristics:
               {texts.featuresTitle}
             </h4>
 
-            {/* Features Table */}
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[500px] border-collapse" style={{ borderColor: '#25c760' }}>
-                <tbody>
-                  {texts.featuresTable.map((row, index) => (
-                    <tr key={index}>
-                      <td className="border border-green-500 px-4 py-3 text-gray-200 text-xs md:text-sm w-1/2">{row[0]}</td>
-                      <td className="border border-green-500 px-4 py-3 text-gray-200 text-xs md:text-sm w-1/2">{row[1]}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            {/* Features List */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5 md:gap-y-6">
+              {texts.featuresTable.flat().map((item, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <span className="mt-2 w-1.5 h-1.5 min-w-[6px] rounded-full bg-[#25c760]"></span>
+                  <span className="text-gray-200 text-xs md:text-sm">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
