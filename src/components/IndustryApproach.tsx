@@ -134,7 +134,7 @@ export default function IndustryApproach() {
                   <div className="mb-2 md:mt-6 md:mb-2">
                     <a
                       href={product.howToUseUrl || '#'}
-                      className="text-green-400 font-semibold text-xs md:text-xl mb-1 hover:underline block"
+                      className="text-green-400 font-semibold text-xs md:text-xl mb-1 hover:underline block text-center"
                     >
                       {product.howToUseLabel}
                     </a>
