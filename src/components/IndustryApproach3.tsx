@@ -245,7 +245,7 @@ Explain the expected effects from this ingredient group in the following areas:
     effectsDescription3: language === 'JP'
       ? 'そこで、Mother Vegetable Achieve/Foreverについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押すと全成分がコピーされますので、ChatGPTやGeminiなどのAIに入力し、これらの成分の特性については一般公開情報をご確認ください。'
       : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Achieve/Forever. Clicking the "Copy to Clipboard" button below will copy all ingredients. Please paste them into an AI service such as ChatGPT or Gemini, and refer to publicly available information regarding the characteristics of these ingredients.',
-    featuresTitle: language === 'JP' ? '我々の特性について' : 'Our Characteristics',
+    featuresTitle: language === 'JP' ? 'Achieve / Foreverの特性について' : 'About Achieve / Forever Characteristics',
     featuresTable: language === 'JP' ? [
       ['植物や藻の始祖に当たるMother Vegetableのみを使用した完全天然素材/天然栄養素', '飲むタイプのMother Vegetableは、固い外核/細胞壁を持たない構造'],
       ['PM2.5などの外気や虫・鳥類などの混入が起こらない完全室内培養', '重金属・マイクロプラスチック汚染リスクを極限まで排除'],

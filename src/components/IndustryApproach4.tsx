@@ -341,7 +341,7 @@ Explain the expected effects from this ingredient group in the following areas:
     featuresNote: language === 'JP'
       ? '（多くお問い合わせいただく、保湿、皮脂汚れ、傷口、アレルギー肌、デリケートゾーン等のニオイ、化粧下地への応用などについては各国で表現規制が異なりますので、各自AIにてお調べください。）'
       : '(Regarding frequently asked topics such as moisturizing, sebum/dirt removal, wounds, allergy-prone skin, odor in delicate areas, use as a makeup base, etc., expression regulations vary by country, so please research using AI.)',
-    featuresTitle: language === 'JP' ? '我々の特性について' : 'Our Characteristics',
+    featuresTitle: language === 'JP' ? 'Confidenceの特性について' : 'About Confidence Characteristics',
     featuresTable: language === 'JP' ? [
       ['植物や藻の始祖に当たるMother Vegetableのみを使用した完全天然素材/天然栄養素', '塗るタイプのMother Vegetableは、主成分が非晶質の無水ケイ酸'],
       ['PM2.5などの外気や虫・鳥類などの混入が起こらない完全室内培養', '重金属・マイクロプラスチック汚染リスクを極限まで排除'],
