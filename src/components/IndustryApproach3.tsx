@@ -128,11 +128,23 @@ export default function IndustryApproach() {
 
   // プロンプトテンプレート（日本語/英語）- 効果トップ5 + 裏付け成分
   const promptTemplate = language === 'JP'
-    ? `以下の成分を含む食品について、期待できる効果を教えてください。
+    ? `以下の成分を含む食品について、期待できる効果を一般公開情報をもとに教えてください。
 **断定は避け**、あくまで一般的に知られている情報に基づいてください。
 
-【出力形式（必ずこの順）】
+前提条件として、この品種の特性は次の通りです。
+以下の特性や環境下で育ち作られた品種がどのようなメリットが考えられるかを説明してください：
+・植物の始祖にあたる天然素材のみを使用
+・外核/細胞壁が柔らかい構造
+・PM2.5などの外気や虫・鳥類などの混入が起こらない完全室内培養（Closed Bioreactor System）
+・重金属・マイクロプラスチック汚染リスクを極限まで排除
+・農薬・化学肥料 不使用
+・食品添加物 不使用
+・保存料・人工着色料・香料 不使用
+・災害用備蓄品などの長期保存
+・動物や植物への栄養にも使用可能
 
+
+【出力形式（必ずこの順）】
 1) **期待できる効果トップ5**
 以下の成分群から期待できる主な効果を、重要度順に5つ挙げてください。
 ※最も多く含まれる成分はフィコシアニン（C-フィコシアニン：約16-20g/100g）です。
@@ -150,26 +162,34 @@ export default function IndustryApproach() {
 - 二日酔い
 - 疲労
 
-3) **この食品の特性について**
-以下の特性を持つ食品として、どのようなメリットが考えられるか説明してください：
-・植物や藻の始祖にあたる天然素材のみを使用
-・固い外核や細胞壁を持たない（消化吸収への影響）
-・完全室内培養（Closed Bioreactor System）
-・重金属・マイクロプラスチック汚染リスクを極限まで排除
-・虫・鳥類・外来微生物などの混入が起こらない培養環境
-・農薬・化学肥料 不使用
-・食品添加物 不使用
-・保存料・人工着色料・香料 不使用
+3) **犬や猫が食べた際に期待される効果**
+以下の領域について、この成分群から期待できる効果を説明してください：
+- 腸内機能
+- 便通
+- 涙やけ
+- 被毛
 
-4) **免責**：これは医療アドバイスではありません。詳細は専門家にご相談ください。
+4) **免責**：これは医療アドバイスではないこと、一般公開情報であることを掲載してください。詳細は専門家や医師に相談することを推奨してください。
 
 【成分リスト（100g当たり）】
 - ${allNutrientsListForPrompt}`
-    : `Please tell me about the expected benefits of a food containing the following ingredients.
-**Avoid definitive claims**.
+    : `Please tell me about the expected benefits of a food containing the following ingredients, based on publicly available information.
+**Avoid definitive claims** and base your response on generally known information.
+
+As a prerequisite, the characteristics of this variety are as follows.
+Please explain what benefits can be expected from a variety grown and produced under the following characteristics and conditions:
+・Uses only natural ingredients derived from the ancestor of plants
+・Soft outer shell/cell wall structure
+・Complete indoor cultivation (Closed Bioreactor System) free from outdoor air pollutants such as PM2.5, insects, birds, etc.
+・Minimized risk of heavy metal and microplastic contamination
+・No pesticides or chemical fertilizers
+・No food additives
+・No preservatives, artificial colors, or fragrances
+・Suitable for long-term storage as emergency disaster supplies
+・Can also be used as nutrition for animals and plants
+
 
 【Output Format (in this order)】
-
 1) **Top 5 Expected Benefits**
 List the top 5 expected benefits from this ingredient group, in order of importance.
 *Note: The most abundant ingredient is Phycocyanin (C-Phycocyanin: approx. 16-20g/100g).*
@@ -187,18 +207,14 @@ Explain the expected effects from this ingredient group in the following areas:
 - Hangover recovery
 - Fatigue
 
-3) **About This Food's Characteristics**
-Explain the potential benefits of a food with these characteristics:
-・Uses only natural ingredients derived from the ancestor of plants and algae
-・Has no hard outer shell or cell wall (impact on digestion/absorption)
-・Completely indoor cultivation (Closed Bioreactor System)
-・Minimized risk of heavy metal and microplastic contamination
-・Cultivation environment free from insects, birds, and foreign microorganisms
-・No pesticides or chemical fertilizers
-・No food additives
-・No preservatives, artificial colors, or fragrances
+3) **Expected Effects When Consumed by Dogs and Cats**
+Explain the expected effects from this ingredient group in the following areas:
+- Gut function
+- Bowel movements
+- Tear staining
+- Coat condition
 
-4) **Disclaimer**: This is NOT medical advice. Please consult a professional for details.
+4) **Disclaimer**: This is NOT medical advice and is based on publicly available information. We recommend consulting a specialist or physician for details.
 
 【Ingredient List (per 100g)】
 - ${allNutrientsListForPrompt}`
