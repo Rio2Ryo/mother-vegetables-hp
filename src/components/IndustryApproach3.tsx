@@ -426,7 +426,7 @@ Explain the expected effects from this ingredient group in the following areas:
             className="text-lg md:text-3xl font-bold text-center mb-6 md:mb-8"
             style={{ color: '#25c760' }}
           >
-            {texts.featuresTitle}
+            {language === 'JP' ? (<>Achieve / Foreverの<br className="md:hidden" />特性について</>) : texts.featuresTitle}
           </h3>
 
           {/* Features List */}
