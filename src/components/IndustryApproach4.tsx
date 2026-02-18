@@ -395,7 +395,7 @@ Explain the potential benefits of a skincare product with these characteristics:
           {/* 成分表示 */}
           <h3
             className="text-lg md:text-3xl font-bold text-center mb-4 md:mb-6"
-            style={{ color: '#ffffff' }}
+            style={{ color: '#25c760' }}
           >
             {language === 'JP' ? '成分表示（100g当たり）' : 'Ingredient Information (per 100g)'}
           </h3>
@@ -423,7 +423,7 @@ Explain the potential benefits of a skincare product with these characteristics:
           {/* Effects Title */}
           <h3
             className="text-lg md:text-3xl font-bold text-center mb-6 md:mb-8"
-            style={{ color: '#ffffff' }}
+            style={{ color: '#25c760' }}
           >
             {cosmeticTexts.effectsTitle}
           </h3>
@@ -438,8 +438,8 @@ Explain the potential benefits of a skincare product with these characteristics:
           <div className="flex flex-col items-center gap-4 mb-8">
             <button
               onClick={handleCopy}
-              className="group flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 rounded-2xl font-bold text-base md:text-lg transition-all duration-300 hover:scale-105 border-2 border-white bg-transparent hover:bg-white/10 whitespace-nowrap"
-              style={{ color: '#ffffff' }}
+              className="group flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 rounded-2xl font-bold text-base md:text-lg transition-all duration-300 hover:scale-105 border-2 border-[#25c760] bg-transparent hover:bg-[#25c760]/10 whitespace-nowrap"
+              style={{ color: '#25c760' }}
             >
               {/* Clipboard Icon */}
               <svg 
@@ -490,7 +490,7 @@ Explain the potential benefits of a skincare product with these characteristics:
           <div className="mt-8 md:mt-12">
             <h4
               className="text-base md:text-2xl font-bold text-center mb-6"
-              style={{ color: '#ffffff' }}
+              style={{ color: '#25c760' }}
             >
               {cosmeticTexts.featuresTitle}
             </h4>
@@ -499,7 +499,7 @@ Explain the potential benefits of a skincare product with these characteristics:
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5 md:gap-y-6">
               {cosmeticTexts.featuresTable.flat().map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <span className="mt-2 w-1.5 h-1.5 min-w-[6px] rounded-full bg-white"></span>
+                  <span className="mt-2 w-1.5 h-1.5 min-w-[6px] rounded-full bg-[#25c760]"></span>
                   <span className="text-gray-200 text-xs md:text-sm">{item}</span>
                 </div>
               ))}
