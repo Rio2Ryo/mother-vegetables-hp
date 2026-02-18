@@ -306,8 +306,8 @@ Explain the potential benefits of a skincare product with these characteristics:
       ? '私たちMother Vegetableグループは、世界各地で活動を行っているため、効果効能に関する表現についても各国の法律・ガイドラインを遵守します。'
       : 'The Mother Vegetable Group operates worldwide, and we comply with the laws and guidelines of each country regarding the expression of effects and benefits.',
     effectsDescription3: language === 'JP'
-      ? 'そこで、Mother Vegetable Achieve/Foreverについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押すと全成分がコピーされますので、ChatGPTやGeminiなどのAIに入力し、「この成分を飲むとどのような効果効能があるか」についてご自身でお調べください。'
-      : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Achieve/Forever. Clicking the "Copy to Clipboard" button below will copy all ingredients. Please paste them into an AI service such as ChatGPT or Gemini to research the potential effects and benefits of consuming these ingredients.',
+      ? 'そこで、Mother Vegetable Confidenceについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押すと全成分がコピーされますので、ChatGPTやGeminiなどのAIに入力し、「この成分を飲むとどのような効果効能があるか」についてご自身でお調べください。'
+      : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Confidence. Clicking the "Copy to Clipboard" button below will copy all ingredients. Please paste them into an AI service such as ChatGPT or Gemini to research the potential effects and benefits of consuming these ingredients.',
     copyButton: language === 'JP' ? '上記成分をクリップボードにコピー' : 'Copy Ingredients to Clipboard',
     copiedMessage: language === 'JP' 
       ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 
