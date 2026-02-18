@@ -449,12 +449,12 @@ Explain the expected effects from this ingredient group in the following areas:
 
         {/* Features Section - Confidence Characteristics */}
         <div className="max-w-4xl mx-auto px-4 md:px-4 mt-12 md:mt-16">
-          <h4
-            className="text-base md:text-2xl font-bold text-center mb-6"
+          <h3
+            className="text-lg md:text-3xl font-bold text-center mb-6 md:mb-8"
             style={{ color: '#25c760' }}
           >
             {cosmeticTexts.featuresTitle}
-          </h4>
+          </h3>
 
           {/* Features List */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5 md:gap-y-6">
