@@ -394,11 +394,14 @@ Explain the potential benefits of a skincare product with these characteristics:
         <div className="max-w-3xl mx-auto px-0 md:px-4">
           {/* 成分表示 */}
           <h3
-            className="text-lg md:text-3xl font-bold text-center mb-4 md:mb-6"
+            className="text-lg md:text-3xl font-bold text-center mb-2"
             style={{ color: '#25c760' }}
           >
-            {language === 'JP' ? '成分表示（100g当たり）' : 'Ingredient Information (per 100g)'}
+            {language === 'JP' ? '成分表示' : 'Ingredient Information'}
           </h3>
+          <p className="text-gray-400 text-xs md:text-sm text-center mb-4 md:mb-6">
+            {language === 'JP' ? '（100g当たり）' : '(per 100g)'}
+          </p>
 
           {/* 成分グリッド */}
           <div className="grid grid-cols-5 gap-2 md:gap-3 mb-8">
