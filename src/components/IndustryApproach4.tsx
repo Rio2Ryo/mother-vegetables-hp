@@ -397,7 +397,7 @@ Explain the potential benefits of a skincare product with these characteristics:
             className="text-lg md:text-3xl font-bold text-center mb-2"
             style={{ color: '#25c760' }}
           >
-            {language === 'JP' ? '栄養成分表示' : 'Nutrition Facts'}
+            {language === 'JP' ? '成分表示' : 'Ingredient Information'}
           </h3>
           <p className="text-gray-400 text-xs md:text-sm text-center mb-4 md:mb-6">
             {language === 'JP' ? '（100g当たり）' : '(per 100g)'}
