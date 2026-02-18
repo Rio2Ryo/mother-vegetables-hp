@@ -222,13 +222,13 @@ Explain the potential benefits of a food with these characteristics:
 
   // テキスト（日本語/英語）
   const texts = {
-    effectsTitle: language === 'JP' ? '効果効能について' : 'About Effects & Benefits',
+    effectsTitle: language === 'JP' ? '効果効能の表現規制について' : 'About Regulatory Restrictions on Expressing Effects & Benefits',
     effectsDescription1: language === 'JP'
       ? '私たちMother Vegetableグループは、世界各地で活動を行っているため、効果効能に関する表現についても各国の法律・ガイドラインを遵守します。'
       : 'The Mother Vegetable Group operates worldwide, and we comply with the laws and guidelines of each country regarding the expression of effects and benefits.',
     effectsDescription3: language === 'JP'
-      ? 'そこで、Mother Vegetable Achieve/Foreverについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押すと全成分がコピーされますので、ChatGPTやGeminiなどのAIに入力し、「この成分を飲むとどのような効果効能があるか」についてご自身でお調べください。'
-      : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Achieve/Forever. Clicking the "Copy to Clipboard" button below will copy all ingredients. Please paste them into an AI service such as ChatGPT or Gemini to research the potential effects and benefits of consuming these ingredients.',
+      ? 'そこで、Mother Vegetable Achieve/Foreverについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押すと全成分がコピーされますので、ChatGPTやGeminiなどのAIに入力し、これらの成分の特性については一般公開情報をご確認ください。'
+      : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Achieve/Forever. Clicking the "Copy to Clipboard" button below will copy all ingredients. Please paste them into an AI service such as ChatGPT or Gemini, and refer to publicly available information regarding the characteristics of these ingredients.',
     featuresTitle: language === 'JP' ? '我々の特性について' : 'Our Characteristics',
     featuresTable: language === 'JP' ? [
       ['植物や藻の始祖に当たるMother Vegetableのみを使用した完全天然素材/天然栄養素', '飲むタイプのMother Vegetableは、固い外核/細胞壁を持たない構造'],
@@ -244,8 +244,8 @@ Explain the potential benefits of a food with these characteristics:
       ['Can also be used as nutrition for animals and plants', 'Suitable for long-term storage as emergency disaster supplies'],
     ],
     featuresNote: language === 'JP'
-      ? '（多くお問い合わせいただく、腸内機能/睡眠/便/運動機能/二日酔い/疲労等についての効果は各自AIにてお調べください。）'
-      : '(For frequently asked questions about gut health, sleep, bowel movements, exercise performance, hangovers, fatigue, etc., please research using AI.)',
+      ? '（多くお問い合わせいただく、腸内機能/睡眠/便/運動機能/二日酔い/疲労等については各国で表現規制が異なりますので、各自AIにてお調べください。）'
+      : '(Regarding frequently asked topics such as gut health, sleep, bowel movements, exercise performance, hangovers, fatigue, etc., expression regulations vary by country, so please research using AI.)',
     copyButton: language === 'JP' ? '上記成分をクリップボードにコピー' : 'Copy Ingredients to Clipboard',
     copiedMessage: language === 'JP' 
       ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 
