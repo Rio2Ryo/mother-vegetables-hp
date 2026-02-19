@@ -239,7 +239,6 @@ export default function IndustryApproach() {
 以下の領域について、この成分群から期待できる効果を説明してください：
 - 切創（傷口に関与するため医療関係の論文の引用必須）
 - アレルギー肌（傷口に関与するため、医療関係の論文の引用必須）
-- 怪我により表皮が剥がれ真皮層に直接塗布し、コラーゲンに当該無水ケイ酸が届いた際の合成・架橋・分解
 - バリア機能
 - 保湿
 - 皮脂汚れ
@@ -287,7 +286,6 @@ For each benefit:
 Explain the expected effects from this ingredient group in the following areas:
 - Cuts/lacerations (citation of medical literature required as it involves wound care)
 - Allergy-prone skin (citation of medical literature required as it involves wound care)
-- When the epidermis is removed due to injury and the anhydrous silica is applied directly to the dermis layer, reaching collagen — synthesis, crosslinking, and degradation
 - Barrier function
 - Moisturizing
 - Sebum/dirt removal
