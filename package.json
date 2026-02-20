@@ -2,6 +2,7 @@
   "name": "mother-vegetables-nextjs",
   "version": "0.1.0",
   "private": true,
+  "author": "Rio2Ryo <common.gifted.tokyo@gmail.com>",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
