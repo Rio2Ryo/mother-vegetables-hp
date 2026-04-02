@@ -333,8 +333,8 @@ Explain the expected effects from this ingredient group in the following areas:
       ? 'そこで、Mother Vegetable Confidenceについて成分を全てオープンにします。以下の「クリップボードにコピー」のボタンを押すと全成分がコピーされますので、ChatGPTやGeminiなどのAIに入力し、これらの成分の特性については一般公開情報をご確認ください。'
       : 'Therefore, we are fully disclosing all ingredients of Mother Vegetable Confidence. Clicking the "Copy to Clipboard" button below will copy all ingredients. Please paste them into an AI service such as ChatGPT or Gemini, and refer to publicly available information regarding the characteristics of these ingredients.',
     copyButton: language === 'JP' ? '上記成分をクリップボードにコピー' : 'Copy Ingredients to Clipboard',
-    copiedMessage: language === 'JP' 
-      ? '✅ コピーしました！次にAIを開いて貼り付けてください。' 
+    copiedMessage: language === 'JP'
+      ? '✅ コピーしました！次にAIを開いて貼り付けてください。'
       : '✅ Copied! Open an AI service and paste.',
     featuresNote: language === 'JP'
       ? '（多くお問い合わせいただく、保湿、皮脂汚れ、傷口、アレルギー肌、デリケートゾーン等のニオイ、化粧下地への応用などについては各国で表現規制が異なりますので、各自AIにてお調べください。）'
@@ -372,7 +372,7 @@ Explain the expected effects from this ingredient group in the following areas:
           className="text-xl md:text-5xl font-bold text-center mb-1 md:mb-2"
           style={{ color: '#ffffff' }}
         >
-         Cosmetic Function
+          Cosmetic Function
         </h2>
         <p
           className="text-sm md:text-2xl text-center mb-2 md:mb-4"
@@ -518,9 +518,9 @@ Explain the expected effects from this ingredient group in the following areas:
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-5 py-3 md:px-6 md:py-3 rounded-xl font-semibold text-sm md:text-base transition-all duration-300 hover:scale-105 bg-gray-800 hover:bg-gray-700 border border-gray-600"
               >
-                <img 
-                  src={service.logo} 
-                  alt={service.name} 
+                <img
+                  src={service.logo}
+                  alt={service.name}
                   className="w-5 h-5 md:w-6 md:h-6"
                 />
                 <span className="text-white">{service.name}</span>
@@ -545,8 +545,8 @@ Explain the expected effects from this ingredient group in the following areas:
             aria-expanded={isPopupOpen}
             aria-controls="before-after-popup"
           >
-            <svg className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span>{language === 'JP' ? '肌動画・Before＆Afterを見る' : 'View Skin Video & Before & After'}</span>
+            <svg className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>{language === 'JP' ? 'Before＆Afterを見る' : 'View Before & After'}</span>
           </button>
         </div>
 
@@ -595,8 +595,8 @@ Explain the expected effects from this ingredient group in the following areas:
                 <h2 className="text-white text-2xl md:text-4xl font-bold mb-2">Confidence</h2>
                 <p className="text-[#25c760] text-sm md:text-lg">Before & After</p>
                 <p className="text-gray-400 text-xs md:text-sm mt-2">
-                  {language === 'JP' 
-                    ? '※個人の感想です。結果には個人差があります。' 
+                  {language === 'JP'
+                    ? '※個人の感想です。結果には個人差があります。'
                     : '* Individual results may vary. These are personal experiences.'}
                 </p>
               </div>
