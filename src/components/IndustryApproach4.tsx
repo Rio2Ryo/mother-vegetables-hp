@@ -534,8 +534,23 @@ Explain the expected effects from this ingredient group in the following areas:
           </p>
         </div>
 
-        {/* Popup Modal - Hidden */}
-        {/* Skin Video and Before & After Button removed */}
+        {/* Popup Modal Toggle Button */}
+        <div className="flex justify-center mt-6 mb-8">
+          <button
+            type="button"
+            onClick={() => setIsPopupOpen(true)}
+            className="group flex items-center gap-2 px-5 py-3 md:px-8 md:py-4 rounded-2xl font-bold text-sm md:text-lg transition-all duration-300 hover:scale-105 border-2 border-[#25c760] bg-transparent hover:bg-[#25c760]/10"
+            style={{ color: '#25c760' }}
+            aria-haspopup="dialog"
+            aria-expanded={isPopupOpen}
+            aria-controls="before-after-popup"
+          >
+            <svg className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>{language === 'JP' ? '肌動画・Before＆Afterを見る' : 'View Skin Video & Before & After'}</span>
+          </button>
+        </div>
+
+        {/* Popup Modal */}
         {isPopupOpen && (
           <div
             className="fixed inset-0 bg-black/90 flex items-center justify-center p-2 md:p-4"
@@ -561,6 +576,7 @@ Explain the expected effects from this ingredient group in the following areas:
               }
             `}</style>
             <div
+              id="before-after-popup"
               className="custom-scrollbar bg-black border-2 border-[#25c760] rounded-lg w-full max-w-5xl max-h-[95vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
