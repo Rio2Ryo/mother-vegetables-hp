@@ -534,7 +534,7 @@ Explain the expected effects from this ingredient group in the following areas:
           </p>
         </div>
 
-        {/* Popup Modal Toggle Button */}
+        {/* Popup Modal Toggle Button 
         <div className="flex justify-center mt-6 mb-8">
           <button
             type="button"
@@ -548,7 +548,7 @@ Explain the expected effects from this ingredient group in the following areas:
             <svg className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             <span>{language === 'JP' ? 'Before＆Afterを見る' : 'View Before & After'}</span>
           </button>
-        </div>
+        </div>*/}
 
         {/* Popup Modal */}
         {isPopupOpen && (
