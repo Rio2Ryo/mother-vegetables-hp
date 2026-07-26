@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import ProjectOverview from '@/components/ProjectOverview'
-import IndustryApproach from '@/components/IndustryApproach'
 import TeamMembers from '@/components/TeamMembers'
 import GroupCompanies from '@/components/GroupCompanies'
 import Footer from '@/components/Footer'
@@ -29,7 +28,6 @@ export default function Home() {
         <Header />
         <Hero />
         <ProjectOverview />
-        <IndustryApproach />
         <TeamMembers />
         <GroupCompanies />
         <Footer />
