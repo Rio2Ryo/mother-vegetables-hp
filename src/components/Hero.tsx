@@ -2,60 +2,18 @@
 
 import Image from 'next/image'
 import { useLanguage } from '@/contexts/LanguageContext'
-import CountdownTimer from '@/components/CountdownTimer'
-import { useState, useEffect } from 'react'
+
+const sdgGoals = [
+  { number: '2', title: 'Zero Hunger', color: '#DDA63A', icon: '〰' },
+  { number: '3', title: 'Good Health and\nWell-being', color: '#4C9F38', icon: '⌁' },
+  { number: '9', title: 'Industry,\nInnovation, and\nInfrastructure', color: '#FD6925', icon: '◇' },
+  { number: '11', title: 'Sustainable Cities\nand Communities', color: '#FD9D24', icon: '▥' },
+  { number: '13', title: 'Climate Action', color: '#3F7E44', icon: '◉' },
+  { number: '14', title: 'Life Below Water', color: '#0A97D9', icon: '≈' },
+]
 
 export default function Hero() {
   const { t } = useLanguage()
-  const [countdown, setCountdown] = useState('')
-
-  useEffect(() => {
-    const targetDate = new Date('2025-11-11T11:00:00Z') // UTC time
-
-    const updateCountdown = () => {
-      const now = new Date()
-      const difference = targetDate.getTime() - now.getTime()
-
-      if (difference <= 0) {
-        setCountdown('Launched!')
-        return
-      }
-
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24))
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000)
-
-      setCountdown(`${days}d ${hours}h ${minutes}m ${seconds}s`)
-    }
-
-    updateCountdown() // Initial update
-    const interval = setInterval(updateCountdown, 1000) // Update every second
-
-    return () => clearInterval(interval) // Cleanup on unmount
-  }, [])
-  const scrollToDetails = () => {
-    const element = document.getElementById('project-overview')
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
-  const scrollToToken = () => {
-    const element = document.getElementById('token')
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
-  const downloadWhitepaper = () => {
-    const link = document.createElement('a')
-    link.href = '/0912_whitepaper_ja.pdf'
-    link.download = 'MOTHER_VEGETABLES_Whitepaper_JP.pdf'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
 
   return (
     <section className="relative md:min-h-screen flex items-center justify-center overflow-hidden">
@@ -72,7 +30,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-7xl mx-auto px-4 transition-all duration-1500 pt-40 md:pt-48 lg:pt-56">
+      <div className="relative z-10 text-center max-w-7xl mx-auto px-4 transition-all duration-1500 pt-32 md:pt-40 lg:pt-48 pb-12">
         {/* Title Section - Single Component */}
         <div className="mb-12">
 
@@ -98,7 +56,7 @@ export default function Hero() {
               filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) drop-shadow(0 2px 4px rgba(34, 197, 94, 0.2))',
             }}
           >
-            <h1 className="text-sm sm:text-2xl md:text-3xl lg:text-3xl font-semibold leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-tight">
               <div>MOTHER VEGETABLE PROJECT</div>
             </h1>
           </div>
@@ -129,6 +87,35 @@ export default function Hero() {
                 EN: 'Earth’s life force, for you.'
               })}
             </p>
+          </div>
+        </div>
+
+        <div className="mt-14 md:mt-16">
+          <div className="mb-5 flex items-center justify-center gap-3 text-[#4ade80]">
+            <span className="text-sm">❧</span>
+            <p className="text-[10px] md:text-xs uppercase tracking-[0.38em]">
+              Growing a Sustainable Future
+            </p>
+          </div>
+          <div className="mx-auto grid max-w-6xl grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6 md:gap-4">
+            {sdgGoals.map((goal) => (
+              <div
+                key={goal.number}
+                className="flex min-h-[132px] flex-col items-center justify-between rounded-lg border border-white/20 bg-black/20 px-3 py-4 backdrop-blur-sm"
+              >
+                <div
+                  className="flex h-10 w-10 flex-col items-center justify-center rounded-sm text-white shadow-lg"
+                  style={{ backgroundColor: goal.color }}
+                >
+                  <span className="text-[9px] font-bold leading-none">{goal.number}</span>
+                  <span className="text-base leading-none">{goal.icon}</span>
+                </div>
+                <p className="whitespace-pre-line text-center text-xs font-medium leading-tight text-white">
+                  {goal.title}
+                </p>
+                <p className="text-[9px] uppercase tracking-[0.28em] text-white/45">SDG {goal.number}</p>
+              </div>
+            ))}
           </div>
         </div>
 
