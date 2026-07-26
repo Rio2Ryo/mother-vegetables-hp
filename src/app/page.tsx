@@ -5,13 +5,8 @@ import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import ProjectOverview from '@/components/ProjectOverview'
 import IndustryApproach from '@/components/IndustryApproach'
-import IndustryApproach2 from '@/components/IndustryApproach2'
-import IndustryApproach3 from '@/components/IndustryApproach3'
-import IndustryApproach4 from '@/components/IndustryApproach4'
 import TeamMembers from '@/components/TeamMembers'
-import Partners from '@/components/Partners'
-import TokenInfo from '@/components/TokenInfo'
-import News from '@/components/News'
+import GroupCompanies from '@/components/GroupCompanies'
 import Footer from '@/components/Footer'
 import LoadingScreen from '@/components/LoadingScreen'
 
@@ -33,19 +28,11 @@ export default function Home() {
       <main className="min-h-screen text-white relative">
         <Header />
         <Hero />
-        <IndustryApproach />
-        <IndustryApproach2 />
-        <IndustryApproach3 />
-        <IndustryApproach4 />
         <ProjectOverview />
-        {/*<TeamMembers />*/}
-        {/*<Partners />*/}
-        {/*<TokenInfo />*/}
-        {/*<News />*/}
-        {/*<FAQ />*/}
+        <IndustryApproach />
+        <TeamMembers />
+        <GroupCompanies />
         <Footer />
-
-       
       </main>
     </>
   )
